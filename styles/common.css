@@ -2743,9 +2743,46 @@ nav>a:hover,
     resize: vertical;
 }
 
+.contact-form input:disabled,
+.contact-form textarea:disabled,
+.contact-submit-btn:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
 .contact-form input:focus,
 .contact-form textarea:focus {
     box-shadow: 0 0 0 1px #32ab42 inset;
+}
+
+.contact-form-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.contact-form-status {
+    min-height: 18px;
+    margin: 2px 0 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #202020;
+}
+
+.contact-form-status.is-pending {
+    color: #4b5563;
+}
+
+.contact-form-status.is-success {
+    color: #167a28;
+}
+
+.contact-form-status.is-error {
+    color: #a12626;
 }
 
 .contact-enquiry-type {
@@ -4225,4 +4262,3 @@ body.hospitality-template p {
         transition-duration: 0.01ms !important;
     }
 }
-
