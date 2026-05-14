@@ -332,14 +332,14 @@ nav>a:hover,
     color: var(--primary-green);
 }
 
-.nav-story:hover .story-dropdown,
+:root:not(.nav-hover-suppressed) .nav-story:hover .story-dropdown,
 .nav-story.is-open .story-dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.nav-story:hover .story-trigger,
+:root:not(.nav-hover-suppressed) .nav-story:hover .story-trigger,
 .nav-story.is-open .story-trigger {
     color: var(--primary-green);
 }
@@ -397,6 +397,14 @@ nav>a:hover,
     color: var(--primary-green);
 }
 
+.real-estate-status-col.is-hovering .real-estate-status-btn {
+    color: #000000;
+}
+
+.real-estate-status-col.is-hovering .real-estate-status-btn.is-hovered {
+    color: var(--primary-green);
+}
+
 .real-estate-status-btn:hover {
     transform: translateX(1px);
 }
@@ -434,8 +442,10 @@ nav>a:hover,
     grid-template-columns: minmax(0, 1fr);
 }
 
-.real-estate-group h5 {
+.real-estate-group h5,
+.real-estate-group-link {
     margin: 0 0 10px;
+    display: inline-flex;
     font-family: 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     font-weight: 550;
@@ -443,6 +453,12 @@ nav>a:hover,
     text-transform: uppercase;
     color: #000000;
     white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.real-estate-group-link:hover,
+.real-estate-group-link:focus-visible {
+    color: var(--primary-green);
 }
 
 .real-estate-group ul {
@@ -489,6 +505,7 @@ nav>a:hover,
 
 .real-estate-view-all:hover {
     transform: translateY(-1px);
+    color: var(--primary-green);
 }
 
 .real-estate-view-all:hover span {
@@ -500,18 +517,19 @@ nav>a:hover,
 }
 
 .real-estate-view-all:focus-visible {
+    color: var(--primary-green);
     outline: 2px solid #37b34a;
     outline-offset: 4px;
 }
 
-.nav-real-estate:hover .real-estate-dropdown,
+:root:not(.nav-hover-suppressed) .nav-real-estate:hover .real-estate-dropdown,
 .nav-real-estate.is-open .real-estate-dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.nav-real-estate:hover .real-estate-trigger,
+:root:not(.nav-hover-suppressed) .nav-real-estate:hover .real-estate-trigger,
 .nav-real-estate.is-open .real-estate-trigger {
     color: var(--primary-green);
 }
@@ -553,14 +571,14 @@ nav>a:hover,
     color: var(--primary-green);
 }
 
-.nav-hospitality:hover .hospitality-dropdown,
+:root:not(.nav-hover-suppressed) .nav-hospitality:hover .hospitality-dropdown,
 .nav-hospitality.is-open .hospitality-dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.nav-hospitality:hover .hospitality-trigger,
+:root:not(.nav-hover-suppressed) .nav-hospitality:hover .hospitality-trigger,
 .nav-hospitality.is-open .hospitality-trigger {
     color: var(--primary-green);
 }
@@ -804,7 +822,8 @@ nav>a:hover,
         min-width: 150px;
     }
 
-    .real-estate-group h5 {
+    .real-estate-group h5,
+    .real-estate-group-link {
         font-size: 12px;
         margin-bottom: 8px;
     }
@@ -1428,10 +1447,8 @@ nav>a:hover,
     padding: 56px 0 28px;
     min-height: 860px;
     position: relative;
-    background-image: radial-gradient(ellipse at center, rgba(208, 213, 217, 0.5) 0%, rgba(208, 213, 217, 0.12) 52%, rgba(208, 213, 217, 0) 72%);
-    background-size: 92% auto;
-    background-repeat: no-repeat;
-    background-position: center bottom;
+    background-color: #ffffff;
+    background-image: none;
 }
 
 .locations-bg-text {
@@ -1486,6 +1503,12 @@ nav>a:hover,
 .real-estate-page-main {
     background: #ffffff;
     padding: 52px 0 0;
+}
+
+#projects-residential,
+#projects-commercial,
+#projects-mixed-use {
+    scroll-margin-top: calc(var(--header-overlay-top, 74px) + 22px);
 }
 
 .re-featured-section {
@@ -2916,6 +2939,38 @@ nav>a:hover,
 }
 
 /* --- Footer --- */
+.home-footer {
+    position: relative;
+}
+
+.home-footer .container {
+    position: relative;
+    z-index: 1;
+}
+
+.home-footer-sketch {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    width: 100%;
+    height: clamp(360px, 44vw, 620px);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.home-footer-sketch img {
+    width: min(1240px, 96vw);
+    height: auto;
+    display: block;
+    filter: invert(1);
+    opacity: 0.07;
+    transform: translateY(2px);
+}
+
 footer {
     border-top: 4px solid var(--primary-green);
     background: #ffffff;
@@ -3040,6 +3095,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: color 0.2s ease;
 }
 
 .footer-links a::before {
@@ -3047,6 +3103,23 @@ footer {
     color: #5a5a5a;
     font-size: 12px;
     line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-links a:active,
+.footer-links a.is-selected,
+.footer-links a[aria-current='page'] {
+    color: var(--primary-green);
+}
+
+.footer-links a:hover::before,
+.footer-links a:focus-visible::before,
+.footer-links a:active::before,
+.footer-links a.is-selected::before,
+.footer-links a[aria-current='page']::before {
+    color: var(--primary-green);
 }
 
 .footer-links.contact-links a {
