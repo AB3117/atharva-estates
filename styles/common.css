@@ -1507,8 +1507,19 @@ nav>a:hover,
 
 /* --- Real Estate Completed Page --- */
 .real-estate-page-main {
+    --re-content-max-width: 1240px;
+    --re-featured-max-width: 1320px;
+    --re-section-inner-max: 1240px;
     background: #ffffff;
     padding: 52px 0 0;
+}
+
+.real-estate-page-main .container {
+    max-width: var(--re-content-max-width);
+}
+
+.real-estate-page-main .re-featured-section.container {
+    max-width: var(--re-featured-max-width);
 }
 
 #projects-residential,
@@ -1519,9 +1530,9 @@ nav>a:hover,
 
 .re-featured-section {
     padding-top: 54px;
-    padding-bottom: 72px;
-    max-width: 980px;
-    min-height: calc(100vh - var(--header-overlay-top, 74px) - 12px);
+    padding-bottom: clamp(20px, 2.2vw, 34px);
+    max-width: var(--re-featured-max-width);
+    min-height: auto;
 }
 
 .re-page-title {
@@ -1545,7 +1556,7 @@ nav>a:hover,
 .re-featured-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
+    gap: 24px;
 }
 
 .re-featured-grid.is-pune-view {
@@ -1570,7 +1581,13 @@ nav>a:hover,
     aspect-ratio: auto;
     height: 100%;
     min-height: 300px;
-    background-size: cover;
+    background-size: 112% auto;
+    background-position: center;
+}
+
+.re-featured-grid.is-pune-view .re-featured-image-ecstasy {
+    background-size: 116% auto;
+    background-position: center;
 }
 
 .re-featured-grid.is-pune-view .re-featured-info {
@@ -1609,7 +1626,7 @@ nav>a:hover,
     border-radius: 14px;
     overflow: hidden;
     background: #f0f0f0;
-    min-height: 264px;
+    min-height: 340px;
 }
 
 .re-featured-image {
@@ -1639,44 +1656,44 @@ nav>a:hover,
 }
 
 .re-featured-info {
-    padding: 10px 12px 14px;
+    padding: 14px 16px 18px;
 }
 
 .re-featured-info h3 {
     font-family: 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 1.1;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     color: #090909;
 }
 
 .re-featured-location {
     display: inline-flex;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 300;
     font-style: italic;
     color: #060606;
-    line-height: 1;
-    margin-bottom: 15px;
+    line-height: 1.2;
+    margin-bottom: 14px;
 }
 
 .re-featured-location .location-icon,
 .re-commercial-location .location-icon {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     flex: 0 0 auto;
 }
 
 .re-featured-type,
 .re-featured-size {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 8px;
+    font-size: 12px;
     font-weight: 400;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.32px;
     line-height: 1.22;
     text-transform: uppercase;
     color: #111111;
@@ -1693,8 +1710,9 @@ nav>a:hover,
 }
 
 .re-completed-head {
-    padding-bottom: 8px;
-    max-width: 1240px;
+    margin-top: 8px;
+    padding-bottom: 16px;
+    max-width: var(--re-content-max-width);
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -1773,16 +1791,16 @@ nav>a:hover,
 }
 
 .re-category-block {
-    margin-top: 18px;
-    padding-bottom: 46px;
+    margin-top: 10px;
+    padding-bottom: 28px;
 }
 
 .re-city-panel .re-category-block + .re-category-block {
-    margin-top: 44px;
+    margin-top: 26px;
 }
 
 .re-city-panel .re-category-block:first-child {
-    margin-top: 40px;
+    margin-top: 32px;
 }
 
 .re-banner {
@@ -1809,7 +1827,7 @@ nav>a:hover,
 .re-banner h3 {
     position: relative;
     z-index: 2;
-    margin-left: max(18px, calc((100vw - 1240px) / 2 + 28px));
+    margin-left: max(18px, calc((100% - var(--re-content-max-width)) / 2 + 28px));
     margin-bottom: 30px;
     color: #ffffff;
     font-family: 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
@@ -1821,7 +1839,11 @@ nav>a:hover,
 }
 
 .re-category-content {
-    padding-top: 26px;
+    padding-top: 16px;
+    width: min(100%, var(--re-section-inner-max));
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .re-category-content h4 {
@@ -1832,6 +1854,8 @@ nav>a:hover,
     letter-spacing: 0.1px;
     margin-bottom: 10px;
     text-transform: uppercase;
+    width: 100%;
+    text-align: left;
 }
 
 .re-category-content>p {
@@ -1840,8 +1864,12 @@ nav>a:hover,
     font-weight: 500;
     line-height: 1.4;
     color: #111111;
-    max-width: 1060px;
-    margin-bottom: 70px;
+    max-width: none;
+    margin-bottom: 38px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 100%;
 }
 
 .re-city-panel .re-category-block:first-child .re-category-content h4 {
@@ -1879,6 +1907,15 @@ nav>a:hover,
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 40px 34px;
+    width: min(100%, var(--re-section-inner-max));
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: stretch;
+}
+
+.re-residential-grid .re-mini-card,
+.re-mixed-grid .re-mini-card {
+    width: 100%;
 }
 
 .re-residential-grid .re-mini-card h5 {
@@ -2007,7 +2044,7 @@ nav>a:hover,
 }
 
 .re-city-panel .re-category-block:last-child {
-    padding-bottom: 140px;
+    padding-bottom: 80px;
 }
 
 .re-mixed-grid .re-mini-card .re-mixed-shop {
@@ -2056,6 +2093,9 @@ nav>a:hover,
     flex-direction: column;
     gap: 28px;
     /* tighter spacing */
+    width: min(100%, var(--re-section-inner-max));
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .re-commercial-row {
@@ -2144,7 +2184,7 @@ nav>a:hover,
     }
 
     .re-featured-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .re-featured-grid.is-pune-view .re-featured-card {
@@ -2186,7 +2226,15 @@ nav>a:hover,
     }
 
     .re-city-panel .re-category-block:first-child {
-        margin-top: 26px;
+        margin-top: 44px;
+    }
+
+    .re-category-content {
+        padding-top: 46px;
+    }
+
+    .re-category-content h4 {
+        margin-bottom: 14px;
     }
 
     .re-residential-grid,
@@ -2273,6 +2321,8 @@ nav>a:hover,
         grid-template-columns: 1fr;
         justify-items: start;
         gap: 16px;
+        margin-top: 12px;
+        padding-bottom: 12px;
     }
 
     .re-completed-head h2 {
@@ -2354,6 +2404,221 @@ nav>a:hover,
 
     .re-residential-grid .re-mini-size span {
         font-size: 8px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .real-estate-page-main {
+        --re-content-max-width: min(88vw, 2120px);
+        --re-featured-max-width: min(90vw, 2260px);
+    }
+
+    .re-featured-grid {
+        gap: clamp(24px, 1.7vw, 42px);
+    }
+
+    .re-page-title {
+        font-size: clamp(34px, 1.85vw, 54px);
+    }
+
+    .re-page-subtitle {
+        font-size: clamp(18px, 0.95vw, 28px);
+    }
+
+    .re-featured-info h3 {
+        font-size: clamp(20px, 1.1vw, 34px);
+    }
+
+    .re-featured-location {
+        font-size: clamp(14px, 0.78vw, 23px);
+    }
+
+    .re-featured-type,
+    .re-featured-size {
+        font-size: clamp(13px, 0.68vw, 20px);
+    }
+
+    .re-completed-head h2 {
+        font-size: clamp(40px, 2vw, 62px);
+    }
+
+    .re-completed-subtitle {
+        font-size: clamp(18px, 0.95vw, 27px);
+    }
+
+    .re-city-btn {
+        font-size: clamp(20px, 1.05vw, 32px);
+        padding: clamp(7px, 0.45vw, 16px) clamp(22px, 1.2vw, 40px);
+    }
+
+    .re-banner h3 {
+        font-size: clamp(44px, 2.2vw, 72px);
+    }
+
+    .re-category-content h4 {
+        font-size: clamp(18px, 0.95vw, 30px);
+    }
+
+    .re-city-panel .re-category-block:first-child .re-category-content>p,
+    .re-city-panel .re-category-block:nth-child(2) .re-category-content>p,
+    .re-city-panel .re-category-block:nth-child(3) .re-category-content>p {
+        font-size: clamp(15px, 0.78vw, 24px);
+        line-height: 1.5;
+    }
+
+    .re-residential-grid,
+    .re-mixed-grid {
+        gap: clamp(40px, 2vw, 72px) clamp(34px, 1.7vw, 58px);
+    }
+
+    .re-residential-grid .re-mini-card h5,
+    .re-mixed-grid .re-mini-card h5,
+    .re-commercial-row h5 {
+        font-size: clamp(30px, 1.56vw, 48px);
+    }
+
+    .re-residential-grid .re-mini-card p,
+    .re-residential-grid .re-mini-type,
+    .re-residential-grid .re-mini-year,
+    .re-residential-grid .re-mini-loc,
+    .re-mixed-grid .re-mini-card .re-mixed-type,
+    .re-mixed-grid .re-mini-card .re-mixed-year,
+    .re-mixed-grid .re-mini-card .re-mixed-location,
+    .re-commercial-row p {
+        font-size: clamp(12px, 0.64vw, 20px);
+    }
+
+    .re-residential-grid .re-mini-size {
+        max-width: clamp(148px, 8.3vw, 260px);
+        min-height: clamp(34px, 1.9vw, 58px);
+        padding: 0 clamp(8px, 0.45vw, 16px);
+        font-size: clamp(24px, 1.25vw, 38px);
+    }
+
+    .re-residential-grid .re-mini-size span {
+        font-size: clamp(9px, 0.48vw, 14px);
+    }
+}
+
+@media (min-width: 2400px) {
+    .real-estate-page-main {
+        --re-content-max-width: min(90vw, 2860px);
+        --re-featured-max-width: min(92vw, 3020px);
+    }
+
+    .re-featured-card {
+        min-height: 420px;
+    }
+
+    .re-featured-info {
+        padding: 22px 24px 26px;
+    }
+}
+
+/* Match visual scale at browser 50% zoom without overlap */
+@media (min-width: 2200px) and (max-width: 2800px) {
+    .real-estate-page-main {
+        --re-content-max-width: min(92vw, 2360px);
+        --re-section-inner-max: min(92vw, 2360px);
+    }
+
+    .re-featured-grid.is-pune-view .re-featured-card {
+        grid-template-columns: minmax(760px, 49%) minmax(0, 1fr);
+        min-height: 560px;
+        border-radius: 16px;
+    }
+
+    .re-featured-grid.is-pune-view .re-featured-image {
+        min-height: 560px;
+        background-size: 120% auto;
+    }
+
+    .re-featured-grid.is-pune-view .re-featured-info {
+        padding: 44px 46px;
+    }
+
+    .re-featured-grid.is-pune-view .re-featured-info h3 {
+        font-size: 70px;
+        line-height: 0.95;
+    }
+
+    .re-featured-grid.is-pune-view .re-featured-location {
+        font-size: 48px;
+    }
+
+    .re-featured-grid.is-pune-view .re-featured-type,
+    .re-featured-grid.is-pune-view .re-featured-size {
+        font-size: 40px;
+        line-height: 1.08;
+    }
+
+    .re-city-panel .re-category-block:first-child .re-category-content h4,
+    .re-city-panel .re-category-block:nth-child(2) .re-category-content h4,
+    .re-city-panel .re-category-block:nth-child(3) .re-category-content h4 {
+        font-size: 24px;
+    }
+
+    .re-city-panel .re-category-block:first-child .re-category-content>p,
+    .re-city-panel .re-category-block:nth-child(2) .re-category-content>p,
+    .re-city-panel .re-category-block:nth-child(3) .re-category-content>p {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .re-residential-grid .re-mini-card h5,
+    .re-mixed-grid .re-mini-card h5 {
+        font-size: 46px;
+        line-height: 1.03;
+        min-height: 96px;
+    }
+
+    .re-residential-grid .re-mini-card p,
+    .re-residential-grid .re-mini-type,
+    .re-residential-grid .re-mini-year,
+    .re-residential-grid .re-mini-loc,
+    .re-mixed-grid .re-mini-card .re-mixed-type,
+    .re-mixed-grid .re-mini-card .re-mixed-year,
+    .re-mixed-grid .re-mini-card .re-mixed-location {
+        font-size: 16px;
+        line-height: 1.28;
+    }
+
+    .re-residential-grid .re-mini-loc::before,
+    .re-residential-grid .re-mini-card p:last-of-type::before {
+        width: 17px;
+        height: 17px;
+        flex: 0 0 17px;
+    }
+
+    .re-residential-grid .re-mini-size {
+        max-width: 238px;
+        min-height: 58px;
+        padding: 0 10px;
+        font-size: 38px;
+    }
+
+    .re-residential-grid .re-mini-size span {
+        font-size: 13px;
+    }
+
+    .re-mixed-grid .re-mini-card .re-mixed-bhk {
+        font-size: 15px;
+        min-width: 86px;
+    }
+
+    .re-mixed-grid .re-mini-card .re-mixed-shop {
+        width: 220px;
+        font-size: 15px;
+    }
+
+    .re-commercial-row h5 {
+        font-size: 46px;
+        line-height: 1.24;
+        left: 0;
+    }
+
+    .re-commercial-row p {
+        font-size: 28px;
     }
 }
 
@@ -2669,66 +2934,77 @@ nav>a:hover,
 }
 
 .contact-page-section {
-    padding: 58px 0 72px;
+    padding: 60px 0 74px;
 }
 
 .contact-page-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 420px;
-    gap: 72px;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: clamp(22px, 2.8vw, 52px);
     align-items: start;
-    max-width: 980px;
+    width: min(86%, 1600px);
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .contact-page-info h1 {
-    font-family: 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 44px;
-    font-weight: 600;
+    font-family: 'HelveticaNeueHeavy', 'HelveticaNeueBold', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: clamp(52px, 3.3vw, 64px);
+    font-weight: 800;
     line-height: 1;
     letter-spacing: 0.5px;
-    margin-bottom: 34px;
+    margin-bottom: 40px;
     text-transform: uppercase;
     color: #010101;
 }
 
 .contact-page-info p {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 14px;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
     color: #111111;
-    line-height: 1.35;
-    margin-bottom: 3px;
+    line-height: 1.45;
+    margin-bottom: 5px;
     font-weight: 500;
 }
 
+.contact-page-info > p {
+    padding: 1px 0;
+}
+
 .contact-page-info p strong {
+    display: inline-block;
     font-weight: 700;
+    padding-right: 4px;
 }
 
 .contact-office-block {
-    margin-top: 22px;
+    margin-top: 42px;
 }
 
 .contact-office-block h3 {
-    font-family: 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 14px;
+    font-family: 'HelveticaNeueMedium', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
     font-weight: 700;
-    color: #36a845;
-    margin-bottom: 6px;
+    color: var(--primary-green);
+    margin-bottom: 10px;
 }
 
 .contact-form-panel {
-    background: #dbdbdb;
-    border-radius: 8px;
-    padding: 18px 18px 20px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: clamp(22px, 2vw, 30px);
+    box-shadow: none;
 }
 
 .contact-form-panel h2 {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 30px;
-    font-weight: 300;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: clamp(28px, 2.1vw, 46px);
+    font-weight: 400;
     color: #141414;
-    line-height: 1.1;
-    margin-bottom: 14px;
+    line-height: 1.14;
+    margin-bottom: 18px;
 }
 
 .contact-heading-line-two {
@@ -2738,12 +3014,12 @@ nav>a:hover,
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .contact-form label {
-    font-family: 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px;
+    font-family: 'Inter', 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
     font-weight: 600;
     color: #202020;
     margin-top: 2px;
@@ -2752,23 +3028,23 @@ nav>a:hover,
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    border: 0;
-    border-radius: 3px;
-    background: #efefef;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: #ffffff;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
     font-weight: 400;
     color: #111111;
-    padding: 8px 10px;
+    padding: 10px 14px;
     outline: none;
 }
 
 .contact-form input {
-    height: 30px;
+    height: 45px;
 }
 
 .contact-form textarea {
-    min-height: 104px;
+    min-height: 150px;
     resize: vertical;
 }
 
@@ -2781,7 +3057,8 @@ nav>a:hover,
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    box-shadow: 0 0 0 1px #32ab42 inset;
+    border-color: #9fd9a4;
+    box-shadow: 0 0 0 1px #9fd9a4 inset;
 }
 
 .contact-form-honeypot {
@@ -2795,8 +3072,8 @@ nav>a:hover,
 .contact-form-status {
     min-height: 18px;
     margin: 2px 0 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
     font-weight: 500;
     line-height: 1.35;
     color: #202020;
@@ -2817,29 +3094,29 @@ nav>a:hover,
 .contact-enquiry-type {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: wrap;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 .enquiry-chip {
-    border: none;
+    border: 0;
     background: transparent;
-    border-radius: 2px;
-    padding: 3px 8px;
-    font-family: 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 10px;
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-family: 'Inter', 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
     font-weight: 600;
     color: #181818;
-    line-height: 1.1;
+    line-height: 1;
     cursor: pointer;
     transition: transform 0.16s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 .enquiry-chip.is-active {
-    background: #38b247;
+    background: var(--primary-green);
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .enquiry-chip:hover {
@@ -2856,14 +3133,15 @@ nav>a:hover,
 }
 
 .contact-submit-btn {
-    margin-top: 4px;
-    height: 34px;
+    margin-top: 8px;
+    width: 100%;
+    height: 46px;
     border: 0;
-    border-radius: 5px;
-    background: #37b349;
+    border-radius: 8px;
+    background: var(--primary-green);
     color: #ffffff;
-    font-family: 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
+    font-family: 'Inter', 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.16s ease, box-shadow 0.2s ease;
@@ -2900,47 +3178,77 @@ nav>a:hover,
     }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1600px) and (min-width: 1025px) {
     .contact-page-layout {
-        grid-template-columns: 1fr;
-        gap: 34px;
-        max-width: 720px;
+        width: 84%;
+    }
+}
+
+@media (max-width: 1320px) {
+    .contact-page-layout {
+        gap: clamp(18px, 2.4vw, 36px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .contact-page-layout {
+        width: 92%;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: clamp(26px, 3.2vw, 44px);
     }
 
     .contact-form-panel {
         width: 100%;
-        max-width: 520px;
+        max-width: none;
     }
 
     .contact-page-info h1 {
-        font-size: 40px;
-        margin-bottom: 24px;
+        font-size: clamp(38px, 4.8vw, 48px);
+        margin-bottom: 28px;
     }
 
     .contact-form-panel h2 {
-        font-size: 32px;
+        font-size: clamp(30px, 3.2vw, 38px);
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .contact-page-section {
-        padding: 40px 0 52px;
+        padding: 44px 0 54px;
     }
 
-    .contact-page-info h1 {
-        font-size: 34px;
+    .contact-page-layout {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .contact-page-info p {
-        font-size: 13px;
+        font-size: 16px;
+        line-height: 1.45;
     }
 
     .contact-form-panel {
-        padding: 14px 14px 16px;
+        padding: 18px 16px 20px;
     }
 
     .contact-form-panel h2 {
-        font-size: 26px;
+        font-size: clamp(28px, 8vw, 36px);
+    }
+
+    .contact-heading-line-two {
+        white-space: normal;
+    }
+}
+
+@media (min-width: 1920px) {
+    .contact-page-section {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    .contact-page-layout {
+        width: min(100%, 1600px);
     }
 }
 
@@ -3219,6 +3527,20 @@ footer {
     .footer-grid {
         grid-template-columns: 2.6fr 1fr 1fr 1fr 1.2fr;
         column-gap: 28px;
+        row-gap: 0;
+    }
+
+    .nashik-office,
+    .pune-office {
+        margin-top: -120px;
+    }
+
+    .office-line-nowrap {
+        white-space: normal;
+    }
+
+    .address-col p {
+        overflow-wrap: anywhere;
     }
 
     .footer-bottom {
@@ -4156,6 +4478,163 @@ body.hospitality-template p {
     object-position: center 48%;
 }
 
+/* Hospitality: match PDF proportions at browser 50% zoom (desktop widths) */
+@media (min-width: 2200px) and (max-width: 2800px) {
+    body.hospitality-template {
+        --hospitality-50x-scale: 1.85;
+    }
+
+    body.hospitality-template .container {
+        max-width: min(94vw, 2320px);
+        padding-left: 46px;
+        padding-right: 46px;
+    }
+
+    body.hospitality-template .logo-img {
+        width: 108px;
+    }
+
+    body.hospitality-template nav {
+        gap: 126px;
+    }
+
+    body.hospitality-template nav > a,
+    body.hospitality-template .story-trigger,
+    body.hospitality-template .real-estate-trigger,
+    body.hospitality-template .hospitality-trigger {
+        font-size: 24px;
+    }
+
+    body.hospitality-template .btn-outline {
+        font-size: 20px;
+        padding: 13px 28px;
+        border-radius: 14px;
+    }
+
+    .hospitality-section {
+        max-width: min(94vw, 2320px);
+        padding-left: 88px;
+        padding-right: 88px;
+    }
+
+    .hospitality-hero {
+        min-height: 960px;
+    }
+
+    .hospitality-hero-copy {
+        padding: 132px 58px 18px;
+    }
+
+    .hospitality-hero-copy h1 {
+        font-size: 134px;
+    }
+
+    .hospitality-hero-line-two {
+        margin-left: 204px;
+    }
+
+    .hospitality-hero-copy p {
+        font-size: 56px;
+    }
+
+    .hospitality-enrise-logo {
+        width: 230px;
+        margin-top: 90px;
+    }
+
+    .hospitality-celebration {
+        padding-top: 300px;
+        padding-bottom: 270px;
+    }
+
+    .hospitality-center-head {
+        margin-bottom: 390px;
+    }
+
+    .hospitality-center-head h2 {
+        font-size: 126px;
+    }
+
+    .hospitality-center-head p {
+        font-size: 39px;
+        margin-top: 18px;
+    }
+
+    .hospitality-venues {
+        gap: 220px;
+    }
+
+    .hospitality-venue {
+        gap: 126px;
+    }
+
+    .hospitality-venue-image-wrap img {
+        height: 720px;
+    }
+
+    .hospitality-venue-copy h3 {
+        font-size: 118px;
+        margin-bottom: 30px;
+    }
+
+    .hospitality-venue-copy p {
+        font-size: 26px;
+        line-height: 1.5;
+        max-width: 820px;
+        margin-bottom: 70px;
+    }
+
+    .hospitality-venue-meta {
+        font-size: 24px;
+        gap: 12px;
+    }
+
+    .hospitality-culinary {
+        --hospitality-tile-height: 620px;
+    }
+
+    .hospitality-center-head-culinary {
+        max-width: min(94vw, 2320px);
+        padding-left: 88px;
+        padding-right: 88px;
+        margin-bottom: 90px;
+    }
+
+    .hospitality-horizon-row {
+        margin-top: 130px;
+    }
+
+    .hospitality-horizon-copy,
+    .hospitality-cafe-copy {
+        font-size: 26px;
+        line-height: 1.6;
+        padding-left: 108px;
+        padding-right: 108px;
+    }
+
+    .hospitality-horizon-copy p + p {
+        margin-top: 34px;
+    }
+
+    .hospitality-horizon-title {
+        font-size: 188px;
+    }
+
+    .hospitality-collage-word {
+        font-size: clamp(420px, 26vw, 700px);
+    }
+
+    .hospitality-cafe-title {
+        font-size: 172px;
+        padding-left: 108px;
+        padding-right: 108px;
+    }
+
+    .hospitality-cafe-bottom-word {
+        font-size: clamp(330px, 19vw, 560px);
+    }
+}
+
 @media (max-width: 1024px) {
     .hospitality-section {
         padding-left: 28px;
@@ -4343,7 +4822,7 @@ body.hospitality-template p {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: clamp(14px, 1.5vw, 28px);
     align-items: stretch;
 }
@@ -4425,18 +4904,6 @@ body.hospitality-template p {
     padding-top: 0;
 }
 
-@media (min-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (min-width: 1440px) {
-    .projects-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-}
-
 @media (min-width: 2560px) {
     .featured-projects.container {
         max-width: 1980px;
@@ -4448,6 +4915,10 @@ body.hospitality-template p {
 }
 
 @media (max-width: 767px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
     .project-card:hover {
         transform: translateY(-4px);
     }
@@ -4517,3 +4988,7 @@ body.hospitality-template p {
         transition-duration: 0.01ms !important;
     }
 }
+    .re-completed-head {
+        margin-top: 34px;
+        padding-bottom: 26px;
+    }
