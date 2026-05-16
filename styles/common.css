@@ -623,6 +623,117 @@ nav>a:hover,
     outline-offset: 3px;
 }
 
+/* Shared header: scale proportionally for browser 50% view on large desktops */
+@media (min-width: 2200px) and (max-width: 3200px) {
+    header {
+        padding: 18px 0 20px;
+    }
+
+    header .container {
+        max-width: min(92vw, 2360px);
+        padding: 0 clamp(32px, 2.5vw, 78px);
+    }
+
+    .header-content {
+        min-height: 76px;
+    }
+
+    .logo-img {
+        width: 112px;
+    }
+
+    nav {
+        gap: clamp(96px, 5vw, 152px);
+    }
+
+    nav > a,
+    .story-trigger,
+    .real-estate-trigger,
+    .hospitality-trigger {
+        font-size: 24px;
+    }
+
+    .btn-outline {
+        font-size: 21px;
+        padding: 14px 34px;
+        border-radius: 18px;
+        border-width: 2px;
+    }
+
+    .story-dropdown {
+        min-height: 430px;
+        padding-top: 26px;
+    }
+
+    .story-dropdown a {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .real-estate-dropdown {
+        min-height: 460px;
+        padding-top: 24px;
+    }
+
+    .real-estate-panel {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 52px;
+        margin-right: 92px;
+        width: calc(100vw - var(--real-estate-panel-left) - 92px);
+    }
+
+    .real-estate-status-col {
+        gap: 18px;
+        min-width: 220px;
+        padding-top: 4px;
+    }
+
+    .real-estate-status-btn {
+        font-size: 24px;
+    }
+
+    .real-estate-groups {
+        gap: 56px;
+        padding-top: 4px;
+    }
+
+    .real-estate-group h5,
+    .real-estate-group-link {
+        margin-bottom: 16px;
+        font-size: 24px;
+    }
+
+    .real-estate-group li {
+        margin-bottom: 14px;
+    }
+
+    .real-estate-group li a {
+        font-size: 23px;
+    }
+
+    .real-estate-view-all {
+        margin-top: 16px;
+        gap: 14px;
+        border-top-width: 3px;
+        padding-top: 14px;
+        min-width: 228px;
+        font-size: 23px;
+    }
+
+    .hospitality-dropdown {
+        min-height: 430px;
+        padding-top: 24px;
+    }
+
+    .hospitality-panel {
+        margin-right: 92px;
+    }
+
+    .hospitality-item {
+        font-size: 24px;
+    }
+}
+
 /* --- Hero Section --- */
 .hero {
     position: relative;
@@ -2788,6 +2899,43 @@ nav>a:hover,
     border: 0;
 }
 
+/* Upcoming section: keep typography and map legible at browser 50% zoom */
+@media (min-width: 2200px) and (max-width: 2800px) {
+    .reu-main {
+        padding-bottom: 120px;
+    }
+
+    .reu-intro {
+        width: min(86vw, 2100px);
+        max-width: 2100px;
+        padding-top: 78px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .reu-intro h2 {
+        font-size: clamp(110px, 6vw, 132px);
+        margin-bottom: 40px;
+    }
+
+    .reu-intro p {
+        font-size: 28px;
+        line-height: 1.48;
+        max-width: min(82vw, 1880px);
+        margin-bottom: 30px;
+    }
+
+    .reu-map-wrap {
+        margin-top: 72px;
+        width: min(78vw, 1780px);
+        border-radius: 30px;
+    }
+
+    .reu-map-wrap iframe {
+        height: 500px;
+    }
+}
+
 @media (max-width: 1100px) {
     .reu-hero {
         margin-top: 0;
@@ -3249,6 +3397,83 @@ nav>a:hover,
 
     .contact-page-layout {
         width: min(100%, 1600px);
+    }
+}
+
+/* Contact main section: make 50% view visually match 100% better */
+@media (min-width: 2200px) and (max-width: 2800px) {
+    .contact-page-section {
+        padding: 84px 0 96px;
+    }
+
+    .contact-page-layout {
+        width: min(86vw, 2100px);
+        max-width: 2100px;
+        grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+        gap: 20px;
+    }
+
+    .contact-page-info h1 {
+        font-size: 92px;
+        margin-bottom: 52px;
+    }
+
+    .contact-page-info p {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 9px;
+    }
+
+    .contact-office-block {
+        margin-top: 56px;
+    }
+
+    .contact-office-block h3 {
+        font-size: 24px;
+        margin-bottom: 14px;
+    }
+
+    .contact-form-panel {
+        border-radius: 16px;
+        padding: 44px 40px 42px;
+    }
+
+    .contact-form-panel h2 {
+        font-size: 64px;
+        line-height: 1.12;
+        margin-bottom: 24px;
+    }
+
+    .contact-form label {
+        font-size: 22px;
+        margin-top: 6px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 21px;
+        border-radius: 9px;
+        padding: 14px 16px;
+    }
+
+    .contact-form input {
+        height: 64px;
+    }
+
+    .contact-form textarea {
+        min-height: 220px;
+    }
+
+    .enquiry-chip {
+        padding: 11px 20px;
+        font-size: 20px;
+    }
+
+    .contact-submit-btn {
+        margin-top: 14px;
+        height: 66px;
+        font-size: 24px;
+        border-radius: 10px;
     }
 }
 
@@ -3842,6 +4067,84 @@ footer {
     .footer-bottom>p:first-child,
     .footer-bottom .credits {
         margin-left: 0;
+    }
+}
+
+/* Shared footer: keep 50% view visually equivalent to 100% on all pages */
+@media (min-width: 2200px) and (max-width: 2800px) {
+    footer {
+        padding: 92px 0 62px;
+    }
+
+    footer .container {
+        width: min(86vw, 2100px);
+        max-width: 2100px;
+        padding: 0;
+    }
+
+    footer .footer-grid {
+        column-gap: 72px;
+        row-gap: 56px;
+    }
+
+    footer .footer-logo-img {
+        width: 300px;
+    }
+
+    footer .footer-desc {
+        font-size: 28px;
+        line-height: 1.48;
+        max-width: 1220px;
+    }
+
+    footer .social-icons {
+        gap: 24px;
+    }
+
+    footer .social-icons a {
+        width: 50px;
+        height: 50px;
+    }
+
+    footer .footer-title {
+        font-size: 40px;
+        margin-bottom: 26px;
+    }
+
+    footer .footer-links a {
+        font-size: 24px;
+        gap: 12px;
+    }
+
+    footer .footer-links.contact-links a {
+        gap: 12px;
+    }
+
+    footer .contact-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        flex: 0 0 30px;
+    }
+
+    footer .nashik-office,
+    footer .pune-office {
+        margin-top: -270px;
+    }
+
+    footer .address-col h4 {
+        font-size: 30px;
+        margin-bottom: 12px;
+    }
+
+    footer .address-col p {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    footer .footer-bottom {
+        margin-top: 72px;
+        font-size: 22px;
     }
 }
 

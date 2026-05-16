@@ -1,5 +1,5 @@
 /* Page stylesheet entry */
-@import url('common.css');
+@import url('common.css?v=20260516r');
 
 body.about-template {
     background: #ffffff;
@@ -113,6 +113,54 @@ body.about-template .address-col p,
 body.about-template .footer-desc,
 body.about-template .footer-bottom p {
     font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* About page: keep visual balance at browser 50% zoom */
+@media (min-width: 2200px) and (max-width: 2800px) {
+    .about-intro {
+        width: min(86vw, 2100px);
+        max-width: 2100px;
+        padding: 64px 0 0;
+    }
+
+    .about-head-row {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 64px;
+    }
+
+    .about-head-row h1 {
+        font-size: clamp(86px, 4.8vw, 112px);
+        line-height: 0.9;
+    }
+
+    .about-head-logo {
+        max-width: 300px;
+        margin-bottom: 18px;
+    }
+
+    .about-copy {
+        margin-top: 18px;
+    }
+
+    .about-copy h2 {
+        margin: 28px 0 10px;
+        font-size: 30px;
+        line-height: 1.25;
+    }
+
+    .about-copy p {
+        font-size: 24px;
+        line-height: 1.52;
+        margin-bottom: 22px;
+    }
+
+    .about-tree-strip {
+        margin-top: 22px;
+    }
+
+    body.about-template footer {
+        padding-top: 96px;
+    }
 }
 
 @media (max-width: 1180px) {

@@ -1,5 +1,5 @@
 /* Page stylesheet entry */
-@import url('common.css');
+@import url('common.css?v=20260516r');
 
 body.leadership-template {
     --leadership-gutter: clamp(16px, 8.8vw, 164px);
@@ -166,6 +166,155 @@ body.leadership-template .address-col p,
 body.leadership-template .footer-desc,
 body.leadership-template .footer-bottom p {
     font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Leadership page: improve balance at normal desktop (100% zoom) */
+@media (min-width: 941px) and (max-width: 2199px) {
+    body.leadership-template {
+        --leadership-gutter: clamp(24px, 7.2vw, 152px);
+    }
+
+    .leadership-page-intro {
+        padding-top: clamp(34px, 3.2vw, 56px);
+        padding-bottom: 14px;
+    }
+
+    .leadership-page-intro h1 {
+        font-size: clamp(96px, 8.1vw, 172px);
+    }
+
+    .leadership-page-intro p {
+        margin-top: 12px;
+        font-size: clamp(30px, 2.2vw, 48px);
+        line-height: 1.06;
+    }
+
+    .leader-section-top {
+        grid-template-columns: minmax(560px, 1fr) minmax(500px, 660px);
+        min-height: clamp(560px, 34vw, 680px);
+    }
+
+    .leader-section-bottom {
+        grid-template-columns: minmax(560px, 700px) minmax(540px, 1fr);
+        gap: clamp(28px, 2.6vw, 52px);
+        align-items: end;
+        min-height: clamp(640px, 40vw, 800px);
+    }
+
+    .leader-section-bottom .leader-content {
+        padding: 70px 0 68px 0;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .leader-content h2 {
+        font-size: clamp(52px, 3vw, 76px);
+    }
+
+    .leader-content h3 {
+        font-size: clamp(20px, 1.25vw, 28px);
+        margin-bottom: 20px;
+    }
+
+    .leader-content p {
+        font-size: clamp(18px, 1.02vw, 23px);
+        line-height: 1.52;
+        text-align: left;
+    }
+
+    .leader-image-milind img {
+        width: min(104%, 650px);
+        margin-right: 0;
+        margin-top: 0;
+        transform: scale(1.01);
+    }
+
+    .leader-image-atharva {
+        justify-content: center;
+    }
+
+    .leader-image-atharva img {
+        width: min(102%, 640px);
+        margin-left: -6px;
+        margin-top: 0;
+        transform: scale(1);
+    }
+}
+
+/* Leadership page: keep visual balance at browser 50% zoom */
+@media (min-width: 2200px) and (max-width: 2800px) {
+    body.leadership-template {
+        --leadership-gutter: min(8.4vw, 220px);
+    }
+
+    .leadership-page-intro {
+        padding-top: 68px;
+        padding-bottom: 24px;
+    }
+
+    .leadership-page-intro h1 {
+        font-size: clamp(132px, 7.2vw, 190px);
+    }
+
+    .leadership-page-intro p {
+        margin-top: 16px;
+        font-size: clamp(42px, 2.35vw, 58px);
+        line-height: 1.08;
+    }
+
+    .leader-section-top {
+        grid-template-columns: minmax(840px, 1fr) minmax(560px, 760px);
+        gap: 34px;
+        min-height: 650px;
+    }
+
+    .leader-section-bottom {
+        grid-template-columns: minmax(560px, 760px) minmax(840px, 1fr);
+        gap: 38px;
+        min-height: 760px;
+    }
+
+    .leader-section-top .leader-content {
+        padding-top: 70px;
+        padding-bottom: 48px;
+    }
+
+    .leader-section-bottom .leader-content {
+        padding-bottom: 54px;
+    }
+
+    .leader-content h2 {
+        font-size: clamp(76px, 4.2vw, 104px);
+        line-height: 0.95;
+    }
+
+    .leader-content h3 {
+        margin: 12px 0 28px;
+        font-size: 36px;
+    }
+
+    .leader-content p {
+        font-size: 27px;
+        line-height: 1.54;
+        margin-bottom: 30px;
+    }
+
+    .leader-image-milind img {
+        width: min(118%, 900px);
+        margin-right: -18px;
+        margin-top: -24px;
+    }
+
+    .leader-image-atharva img {
+        width: min(120%, 920px);
+        margin-left: -52px;
+    }
+
+    body.leadership-template footer {
+        padding-top: 110px;
+    }
 }
 
 @media (max-width: 1180px) {
