@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Values | Atharva Enterprises</title>
+    <link rel="preload" as="image" href="assets/Logo/Atharva Enterprises Logo.png" type="image/png" fetchpriority="high">
     <link rel="preload" as="image" href="assets/Values/Pole.png" type="image/png" fetchpriority="high">
-    <link rel="stylesheet" href="styles/values.css">
+    <link rel="stylesheet" href="styles/values.css?v=20260521m1">
 </head>
 <body class="values-template">
 
@@ -14,6 +15,7 @@
             <a class="logo" href="index.html" aria-label="Atharva Enterprises Home">
                 <img class="logo-img" src="assets/Logo/Atharva Enterprises Logo.png" alt="Atharva Enterprises Logo">
             </a>
+            <button type="button" class="values-mobile-menu" id="values-mobile-menu-btn" aria-label="Open menu" aria-controls="values-mobile-drawer" aria-expanded="false">&#9776;</button>
             <nav>
                 <div class="nav-story" id="story-menu">
                     <a href="#" class="story-trigger" id="story-trigger" aria-haspopup="true" aria-expanded="false">Our Story</a>
@@ -87,11 +89,18 @@
             </nav>
             <a href="contact.html" class="btn-outline">Book A Site Visit</a>
         </div>
+        <div class="values-mobile-drawer" id="values-mobile-drawer" hidden>
+            <a href="about.html">Our Story</a>
+            <a href="real-estate-completed.html">Real Estate</a>
+            <a href="hospitality.html">Hospitality</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="values-mobile-cta">Book A Site Visit</a>
+        </div>
     </header>
 
     <main class="values-page-main">
         <section class="values-hero" aria-label="Atharva values">
-            <h1>Our values guide every decision we make, <span>every day</span></h1>
+            <h1>Our values guide every<br class="values-mobile-break">decision we make, <span>every day</span></h1>
 
             <div class="values-layout">
                 <div class="values-column values-column-left">
@@ -206,10 +215,12 @@
         </div>
     </footer>
 
-    <script src="scripts/home.js"></script>
+    <script src="scripts/home.js?v=20260516opt1"></script>
     <script src="scripts/values.js"></script>
 </body>
 </html>
+
+
 
 
 

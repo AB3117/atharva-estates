@@ -172,9 +172,25 @@
         realEstateMenu.addEventListener('mouseenter', openRealEstateMenu);
         realEstateMenu.addEventListener('mouseleave', () => scheduleClose('realEstate', closeRealEstateMenu));
 
+        const statePageMap = {
+            completed: 'real-estate-completed.html',
+            upcoming: 'real-estate-upcoming.html'
+        };
+
         stateButtons.forEach((btn) => {
             btn.addEventListener('click', () => {
-                setRealEstateState(btn.dataset.reState);
+                const selectedState = btn.dataset.reState;
+                const isAlreadyActive = btn.classList.contains('is-active');
+
+                if (isAlreadyActive) {
+                    const targetPage = statePageMap[selectedState];
+                    if (targetPage) {
+                        window.location.href = targetPage;
+                    }
+                    return;
+                }
+
+                setRealEstateState(selectedState);
             });
 
             btn.addEventListener('mouseenter', () => {
@@ -530,5 +546,74 @@
         }
 
         window.addEventListener('pagehide', stopCardScale);
+    }
+
+    const promoteCriticalHeaderAssets = () => {
+        const headerLogos = Array.from(document.querySelectorAll('header .logo-img'));
+        headerLogos.forEach((logo) => {
+            logo.loading = 'eager';
+            logo.decoding = 'async';
+            logo.fetchPriority = 'high';
+        });
+    };
+
+    const warmImageCache = () => {
+        const navConnection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (navConnection && navConnection.saveData) return;
+        if (navConnection && typeof navConnection.effectiveType === 'string' && /(^|-)2g$/.test(navConnection.effectiveType)) return;
+
+        const seen = new Set();
+        const queue = [];
+
+        const pushCandidate = (rawSrc) => {
+            if (!rawSrc) return;
+            const trimmed = rawSrc.trim();
+            if (!trimmed || trimmed.startsWith('data:')) return;
+            try {
+                const resolved = new URL(trimmed, window.location.href).href;
+                if (seen.has(resolved)) return;
+                seen.add(resolved);
+                queue.push(resolved);
+            } catch (_) {
+                // Ignore malformed URLs.
+            }
+        };
+
+        document.querySelectorAll('img[src]').forEach((img) => {
+            pushCandidate(img.currentSrc || img.src);
+        });
+
+        if (queue.length === 0) return;
+
+        const maxParallel = 3;
+        let activeLoads = 0;
+        let nextIndex = 0;
+
+        const pump = () => {
+            while (activeLoads < maxParallel && nextIndex < queue.length) {
+                const src = queue[nextIndex++];
+                const preloadImage = new Image();
+                activeLoads += 1;
+
+                const finalize = () => {
+                    activeLoads -= 1;
+                    pump();
+                };
+
+                preloadImage.decoding = 'async';
+                preloadImage.onload = finalize;
+                preloadImage.onerror = finalize;
+                preloadImage.src = src;
+            }
+        };
+
+        pump();
+    };
+
+    promoteCriticalHeaderAssets();
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(() => warmImageCache(), { timeout: 2500 });
+    } else {
+        window.setTimeout(warmImageCache, 1200);
     }
 });

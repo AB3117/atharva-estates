@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leadership | Atharva Enterprises</title>
+    <link rel="preload" as="image" href="assets/Logo/Atharva Enterprises Logo.png" type="image/png" fetchpriority="high">
     <link rel="preload" as="image" href="assets/Leadership/Milind Shirude.png" type="image/png" fetchpriority="high">
     <link rel="preload" as="image" href="assets/Leadership/Atharva Shirude.png" type="image/png" fetchpriority="high">
-    <link rel="stylesheet" href="styles/leadership.css">
+    <link rel="stylesheet" href="styles/leadership.css?v=20260521r8">
 </head>
 <body class="leadership-template">
 
@@ -15,6 +16,7 @@
             <a class="logo" href="index.html" aria-label="Atharva Enterprises Home">
                 <img class="logo-img" src="assets/Logo/Atharva Enterprises Logo.png" alt="Atharva Enterprises Logo">
             </a>
+            <button type="button" class="lead-mobile-menu" id="lead-mobile-menu-btn" aria-label="Open menu" aria-controls="lead-mobile-drawer" aria-expanded="false">&#9776;</button>
             <nav>
                 <div class="nav-story" id="story-menu">
                     <a href="#" class="story-trigger" id="story-trigger" aria-haspopup="true" aria-expanded="false">Our Story</a>
@@ -88,6 +90,13 @@
             </nav>
             <a href="contact.html" class="btn-outline">Book A Site Visit</a>
         </div>
+        <div class="lead-mobile-drawer" id="lead-mobile-drawer" hidden>
+            <a href="about.html">Our Story</a>
+            <a href="real-estate-completed.html">Real Estate</a>
+            <a href="hospitality.html">Hospitality</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="lead-mobile-cta">Book A Site Visit</a>
+        </div>
     </header>
 
     <main class="leadership-page-main">
@@ -98,10 +107,14 @@
 
         <section class="leader-section leader-section-top">
             <div class="leader-content">
-                <h2>Mr. Milind Shirude</h2>
-                <h3>FOUNDER</h3>
-                <p>With decades of experience in the construction industry, Mr. Milind Shirude is the guiding force behind Atharva Enterprises. His vision, discipline, and unwavering commitment to quality have shaped the company's growth and reputation over the years.</p>
-                <p>Under his leadership, the company has consistently delivered projects that reflect integrity, reliability, and long-term value - earning the trust of customers across generations.</p>
+                <div class="leader-heading">
+                    <h2><span class="leader-prefix">Mr.</span><span class="leader-name">Milind Shirude</span></h2>
+                    <h3>FOUNDER</h3>
+                </div>
+                <div class="leader-body">
+                    <p>With decades of experience in the construction industry, Mr. Milind Shirude is the guiding force behind Atharva Enterprises. His vision, discipline, and unwavering commitment to quality have shaped the company's growth and reputation over the years.</p>
+                    <p>Under his leadership, the company has consistently delivered projects that reflect integrity, reliability, and long-term value - earning the trust of customers across generations.</p>
+                </div>
             </div>
             <div class="leader-image leader-image-milind">
                 <img src="assets/Leadership/Milind Shirude.png" alt="Mr. Milind Shirude" loading="lazy" decoding="async">
@@ -113,10 +126,14 @@
                 <img src="assets/Leadership/Atharva Shirude.png" alt="Mr. Atharva Shirude" loading="lazy" decoding="async">
             </div>
             <div class="leader-content">
-                <h2>Mr. Atharva Shirude</h2>
-                <h3>DIRECTOR</h3>
-                <p>With a background in Civil Engineering (MIT Pune) and an M.S. in Construction Management (NC State University), Atharva Shirude bridges the gap between technical infrastructure and premium lifestyle experiences.</p>
-                <p>Currently, Atharva leads the Pune Real Estate Division while serving as Director of Enrise by Sayaji, Nashik. Having honed his skills internationally at the North Carolina Department of Transportation and domestically at L&amp;T ECC, he applies a disciplined, data-driven approach to real estate and hospitality. His vision is defined by a commitment to global professional standards, delivering excellence across the urban landscape of Pune and the hospitality sector of Nashik.</p>
+                <div class="leader-heading">
+                    <h2><span class="leader-prefix">Mr.</span><span class="leader-name">Atharva Shirude</span></h2>
+                    <h3>DIRECTOR</h3>
+                </div>
+                <div class="leader-body">
+                    <p>With a background in Civil Engineering (MIT Pune) and an M.S. in Construction Management (NC State University), Atharva Shirude bridges the gap between technical infrastructure and premium lifestyle experiences.</p>
+                    <p>Currently, Atharva leads the Pune Real Estate Division while serving as Director of Enrise by Sayaji, Nashik. Having honed his skills internationally at the North Carolina Department of Transportation and domestically at L&amp;T ECC, he applies a disciplined, data-driven approach to real estate and hospitality. His vision is defined by a commitment to global professional standards, delivering excellence across the urban landscape of Pune and the hospitality sector of Nashik.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -190,10 +207,12 @@
         </div>
     </footer>
 
-    <script src="scripts/home.js"></script>
+    <script src="scripts/home.js?v=20260516opt1"></script>
     <script src="scripts/leadership.js"></script>
 </body>
 </html>
+
+
 
 
 

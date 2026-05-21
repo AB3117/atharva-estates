@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Atharva Enterprises</title>
+    <link rel="preload" as="image" href="assets/Logo/Atharva Enterprises Logo.png" type="image/png" fetchpriority="high">
     <link rel="preload" as="image" href="assets/Our Story/Tree.png" type="image/png" fetchpriority="high">
-    <link rel="preload" as="image" href="assets/Logo/Atharva Enterprises Logo.png" type="image/png">
-    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/about.css?v=20260521r1">
 </head>
 <body class="about-template">
 
@@ -15,6 +15,7 @@
             <a class="logo" href="index.html" aria-label="Atharva Enterprises Home">
                 <img class="logo-img" src="assets/Logo/Atharva Enterprises Logo.png" alt="Atharva Enterprises Logo">
             </a>
+            <button type="button" class="about-mobile-menu" id="about-mobile-menu-btn" aria-label="Open menu" aria-controls="about-mobile-drawer" aria-expanded="false">&#9776;</button>
             <nav>
                 <div class="nav-story" id="story-menu">
                     <a href="#" class="story-trigger" id="story-trigger" aria-haspopup="true" aria-expanded="false">Our Story</a>
@@ -87,6 +88,13 @@
                 <a href="contact.html">Contact</a>
             </nav>
             <a href="contact.html" class="btn-outline">Book A Site Visit</a>
+        </div>
+        <div class="about-mobile-drawer" id="about-mobile-drawer" hidden>
+            <a href="about.html" aria-current="page">Our Story</a>
+            <a href="real-estate-completed.html">Real Estate</a>
+            <a href="hospitality.html">Hospitality</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="about-mobile-cta">Book A Site Visit</a>
         </div>
     </header>
 
@@ -185,10 +193,12 @@
         </div>
     </footer>
 
-    <script src="scripts/home.js"></script>
+    <script src="scripts/home.js?v=20260516opt1"></script>
     <script src="scripts/about.js"></script>
 </body>
 </html>
+
+
 
 
 

@@ -3922,7 +3922,6 @@ footer {
 
 .footer-links.hospitality-links a {
     white-space: nowrap;
-    font-size: 12px;
 }
 
 .footer-links.contact-links a::before {
@@ -5239,6 +5238,8 @@ body.hospitality-template p {
 @media (max-width: 900px) {
     .hospitality-hero {
         grid-template-columns: 1fr;
+        min-height: 0;
+        background: transparent;
     }
 
     .hospitality-hero-copy {
@@ -5251,7 +5252,19 @@ body.hospitality-template p {
 
     .hospitality-hero-media img,
     .hospitality-banner {
-        transform: none;
+        display: block;
+        width: 170%;
+        max-width: none;
+        height: auto;
+        object-fit: cover;
+        object-position: left center;
+        transform: translateX(-43%);
+    }
+
+    .hospitality-hero-media {
+        display: block;
+        width: 100%;
+        overflow: hidden;
     }
 
     .hospitality-section {
@@ -5695,6 +5708,226 @@ body.hospitality-template p {
 
     .project-img {
         min-height: 300px;
+    }
+}
+
+/* Home page on 4K: preserve laptop composition and scale it proportionally */
+@media (min-width: 2200px) and (max-width: 3200px) {
+    .home-template .slogan-section.container,
+    .home-template .featured-projects.container,
+    .home-template .stats-section .container,
+    .home-template .features-section.container,
+    .home-template .testimonials .container,
+    .home-template .locations-section .container {
+        max-width: min(88vw, 1940px);
+        padding-inline: clamp(22px, 1.4vw, 42px);
+    }
+
+    .home-template .hero-enquire-btn.is-vistara,
+    .home-template .hero-enquire-btn.is-ecstacy {
+        min-width: clamp(170px, 7.4vw, 236px);
+        min-height: clamp(48px, 2.1vw, 66px);
+        padding: 0 clamp(10px, 0.55vw, 18px) 0 clamp(15px, 0.8vw, 25px);
+        gap: clamp(8px, 0.45vw, 14px);
+        font-size: clamp(22px, 1.02vw, 30px);
+        font-weight: 500;
+        letter-spacing: 0;
+    }
+
+    .home-template .hero-enquire-btn.is-vistara {
+        left: 39.3%;
+        top: 32.7%;
+    }
+
+    .home-template .hero-enquire-btn.is-ecstacy {
+        left: 14.1%;
+        top: 45.9%;
+    }
+
+    .home-template .hero-enquire-btn.is-vistara .arrow,
+    .home-template .hero-enquire-btn.is-ecstacy .arrow {
+        font-size: 1.6em;
+        padding-bottom: clamp(2px, 0.2vw, 6px);
+    }
+
+    .home-template .slogan-section {
+        padding: clamp(124px, 6.2vw, 178px) 20px clamp(138px, 6.8vw, 194px);
+    }
+
+    .home-template .slogan-section h2 {
+        font-size: clamp(58px, 2.65vw, 78px);
+    }
+
+    .home-template .featured-projects {
+        padding: clamp(26px, 1.6vw, 46px) 0 clamp(84px, 4.1vw, 132px);
+    }
+
+    .home-template .section-title {
+        font-size: clamp(2.2rem, 1.3rem + 0.9vw, 3.1rem);
+    }
+
+    .home-template .section-subtitle {
+        font-size: clamp(1.02rem, 0.8rem + 0.3vw, 1.38rem);
+    }
+
+    .home-template .projects-grid {
+        gap: clamp(18px, 1.2vw, 28px);
+    }
+
+    .home-template .project-img {
+        min-height: clamp(220px, 13vw, 320px);
+    }
+
+    .home-template .project-info {
+        padding: clamp(20px, 1.3vw, 30px);
+    }
+
+    .home-template .project-info h3 {
+        font-size: clamp(1.2rem, 0.95rem + 0.25vw, 1.56rem);
+    }
+
+    .home-template .project-location {
+        font-size: clamp(0.9rem, 0.72rem + 0.18vw, 1.1rem);
+    }
+
+    .home-template .project-type,
+    .home-template .project-details {
+        font-size: clamp(0.76rem, 0.64rem + 0.12vw, 0.95rem);
+    }
+
+    .home-template .stats-section {
+        padding: 96px 0 104px;
+    }
+
+    .home-template .since-banner {
+        margin-bottom: clamp(140px, 6.6vw, 210px);
+    }
+
+    .home-template .since-banner h1 {
+        font-size: clamp(240px, 12.6vw, 330px);
+        letter-spacing: -5px;
+    }
+
+    .home-template .since-subtitle {
+        right: clamp(22px, 2vw, 56px);
+        top: calc(100% + 10px);
+        font-size: clamp(26px, 1.15vw, 34px);
+    }
+
+    .home-template .stats-content {
+        grid-template-columns: minmax(350px, 430px) minmax(380px, 500px);
+        gap: clamp(46px, 2.4vw, 72px);
+        margin-top: clamp(210px, 10.5vw, 280px);
+    }
+
+    .home-template .stats-text h2 {
+        font-size: clamp(60px, 2.7vw, 78px);
+    }
+
+    .home-template .stat-box {
+        padding: clamp(24px, 1.4vw, 34px) clamp(28px, 1.6vw, 38px);
+    }
+
+    .home-template .stat-title {
+        font-size: clamp(14px, 0.65vw, 20px);
+    }
+
+    .home-template .stat-number {
+        font-size: clamp(58px, 2.4vw, 86px);
+    }
+
+    .home-template .features-section h2 {
+        font-size: clamp(34px, 1.65vw, 46px);
+    }
+
+    .home-template .features-grid {
+        max-width: min(86vw, 980px);
+        gap: clamp(12px, 0.85vw, 20px);
+    }
+
+    .home-template .feature-content h3 {
+        font-size: clamp(32px, 1.45vw, 44px);
+    }
+
+    .home-template .feature-content p {
+        font-size: clamp(17px, 0.8vw, 24px);
+    }
+
+    .home-template .testimonials {
+        padding: 108px 0 126px;
+    }
+
+    .home-template .testimonials-header {
+        padding-top: 190px;
+    }
+
+    .home-template .testimonials-bg-text {
+        font-size: clamp(144px, 8vw, 210px);
+    }
+
+    .home-template .testimonials-header p {
+        font-size: clamp(31px, 1.35vw, 42px);
+        margin-bottom: clamp(88px, 4.3vw, 136px);
+    }
+
+    .home-template .testi-card {
+        width: clamp(450px, 19vw, 590px);
+        padding: clamp(28px, 1.3vw, 36px) clamp(24px, 1.2vw, 32px);
+    }
+
+    .home-template .testi-card p.quote {
+        font-size: clamp(16px, 0.74vw, 22px);
+    }
+
+    .home-template .testi-author {
+        font-size: clamp(20px, 0.9vw, 27px);
+    }
+
+    .home-template .testi-project {
+        font-size: clamp(14px, 0.68vw, 19px);
+    }
+
+    .home-template .locations-section {
+        min-height: 960px;
+    }
+
+    .home-template .locations-bg-text {
+        font-size: clamp(78px, 3.5vw, 112px);
+        margin-bottom: clamp(54px, 2.5vw, 86px);
+    }
+
+    .home-template .locations-grid {
+        gap: clamp(108px, 4.5vw, 162px);
+    }
+
+    .home-template .loc-col h3 {
+        font-size: clamp(40px, 1.85vw, 54px);
+    }
+
+    .home-template .loc-col li {
+        font-size: clamp(18px, 0.8vw, 25px);
+    }
+}
+
+@media (min-width: 2600px) and (max-width: 3200px) {
+    .home-template .slogan-section.container,
+    .home-template .featured-projects.container,
+    .home-template .stats-section .container,
+    .home-template .features-section.container,
+    .home-template .testimonials .container,
+    .home-template .locations-section .container {
+        max-width: min(86vw, 2140px);
+    }
+
+    .home-template .hero-enquire-btn.is-vistara,
+    .home-template .hero-enquire-btn.is-ecstacy {
+        min-width: clamp(186px, 7.8vw, 264px);
+        min-height: clamp(52px, 2.2vw, 74px);
+        font-size: clamp(24px, 1.06vw, 34px);
+    }
+
+    .home-template .slogan-section h2 {
+        font-size: clamp(62px, 2.85vw, 86px);
     }
 }
 
