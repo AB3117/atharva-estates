@@ -18,6 +18,7 @@
             <a class="logo" href="index.html" aria-label="Atharva Enterprises Home">
                 <img class="logo-img" src="assets/Logo/Atharva Enterprises Logo.png" alt="Atharva Enterprises Logo">
             </a>
+            <button type="button" class="home-mobile-menu" id="home-mobile-menu-btn" aria-label="Open menu" aria-controls="home-mobile-drawer" aria-expanded="false">&#9776;</button>
             <nav>
                 <div class="nav-story" id="story-menu">
                     <a href="#" class="story-trigger" id="story-trigger" aria-haspopup="true" aria-expanded="false">Our Story</a>
@@ -90,6 +91,14 @@
                 <a href="contact.html">Contact</a>
             </nav>
             <a href="contact.html" class="btn-outline">Book A Site Visit</a>
+        </div>
+        <div class="home-mobile-drawer" id="home-mobile-drawer" hidden>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="has-submenu">Our Story</a>
+            <a href="real-estate-completed.html" class="has-submenu">Real Estate</a>
+            <a href="hospitality.html" class="has-submenu">Hospitality</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="home-mobile-cta">Book A Site Visit</a>
         </div>
     </header>
 
@@ -175,7 +184,7 @@
 
             <div class="stats-content">
                 <div class="stats-text">
-                    <h2><span class="stats-strong">Atharva<br>Enterprises,</span><br>Trusted by<br><span class="stats-green">Generations</span></h2>
+                    <h2><span class="stats-strong">Atharva <br class="stats-mobile-hide-break">Enterprises,</span><br class="stats-main-break"><span class="stats-mobile-second-line">Trusted by <span class="stats-green">Generations</span></span></h2>
                 </div>
                 <div class="stats-grid-wrapper">
                     <div class="stat-box">
@@ -213,8 +222,8 @@
         <div class="features-grid">
             <div class="feature-card-img feature-on-time" data-bg="assets/Homepage/optimized/1.1.jpg">
                 <div class="feature-content">
-                    <h3>On Time,<br>Every Time</h3>
-                    <p>Because trust is built<br>on promises kept.</p>
+                    <h3>On Time, Every Time</h3>
+                    <p>Because trust is built on promises kept.</p>
                 </div>
             </div>
             <div class="feature-card-img feature-designs" data-bg="assets/Homepage/optimized/1.2.jpg">
@@ -231,8 +240,8 @@
             </div>
             <div class="feature-card-img feature-connect" data-bg="assets/Homepage/optimized/1.4.jpg">
                 <div class="feature-content">
-                    <h3>1&#8209;1 Connect<br>with Builder</h3>
-                    <p>A direct line to the visionary<br>behind your home.</p>
+                    <h3>1&#8209;1 Connect with Builder</h3>
+                    <p>A direct line to the visionary behind your home.</p>
                 </div>
             </div>
             <div class="feature-card-img feature-vastu" data-bg="assets/Homepage/optimized/1.5.jpg">
@@ -414,7 +423,7 @@
         </div>
     </footer>
 
-    <script src="scripts/home.js?v=20260516opt1"></script>
+    <script src="scripts/home.js?v=20260521h1"></script>
     <script src="scripts/index.js"></script>
 </body>
 </html>

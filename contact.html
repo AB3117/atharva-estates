@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Atharva Enterprises</title>
     <link rel="preload" as="image" href="assets/Logo/Atharva Enterprises Logo.png" type="image/png" fetchpriority="high">
-    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/contact.css?v=20260521c1">
 </head>
-<body>
+<body class="contact-template">
 
     <header>
         <div class="container header-content">
             <a class="logo" href="index.html" aria-label="Atharva Enterprises Home">
                 <img class="logo-img" src="assets/Logo/Atharva Enterprises Logo.png" alt="Atharva Enterprises Logo">
             </a>
+            <button type="button" class="home-mobile-menu" id="home-mobile-menu-btn" aria-label="Open menu" aria-controls="home-mobile-drawer" aria-expanded="false">&#9776;</button>
             <nav>
                 <div class="nav-story" id="story-menu">
                     <a href="#" class="story-trigger" id="story-trigger" aria-haspopup="true" aria-expanded="false">Our Story</a>
@@ -86,6 +87,14 @@
                 <a href="contact.html" aria-current="page">Contact</a>
             </nav>
             <a href="contact.html" class="btn-outline">Book A Site Visit</a>
+        </div>
+        <div class="home-mobile-drawer" id="home-mobile-drawer" hidden>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="has-submenu">Our Story</a>
+            <a href="real-estate-completed.html" class="has-submenu">Real Estate</a>
+            <a href="hospitality.html" class="has-submenu">Hospitality</a>
+            <a href="contact.html" aria-current="page">Contact</a>
+            <a href="contact.html" class="home-mobile-cta">Book A Site Visit</a>
         </div>
     </header>
 
@@ -226,7 +235,7 @@
         </div>
     </footer>
 
-    <script src="scripts/home.js?v=20260516opt1"></script>
+    <script src="scripts/home.js?v=20260521h1"></script>
     <script src="scripts/contact.js"></script>
 </body>
 </html>

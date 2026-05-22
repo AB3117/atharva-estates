@@ -44,12 +44,17 @@
         resizeRafId = requestAnimationFrame(() => {
             resizeRafId = null;
             syncLayoutOffsets();
+            if (!isHomeMobileViewport()) {
+                closeHomeMobileDrawer();
+            }
         });
     }, { passive: true });
 
     const storyMenu = document.getElementById('story-menu');
     const realEstateMenu = document.getElementById('real-estate-menu');
     const hospitalityMenu = document.getElementById('hospitality-menu');
+    const homeMobileMenuBtn = document.getElementById('home-mobile-menu-btn');
+    const homeMobileDrawer = document.getElementById('home-mobile-drawer');
     const lazyBgCards = Array.from(document.querySelectorAll('[data-bg]'));
     const loadedBgPaths = new Set();
     const rootEl = document.documentElement;
@@ -96,6 +101,44 @@
         hospitalityMenu.classList.remove('is-open');
         hospitalityTrigger.setAttribute('aria-expanded', 'false');
     };
+
+    const isHomeMobileViewport = () => window.matchMedia('(max-width: 940px)').matches;
+
+    const closeHomeMobileDrawer = () => {
+        if (!homeMobileDrawer || !homeMobileMenuBtn || !headerEl) return;
+        homeMobileDrawer.hidden = true;
+        homeMobileMenuBtn.setAttribute('aria-expanded', 'false');
+        headerEl.classList.remove('home-mobile-menu-open');
+    };
+
+    const openHomeMobileDrawer = () => {
+        if (!homeMobileDrawer || !homeMobileMenuBtn || !headerEl || !isHomeMobileViewport()) return;
+        closeStoryMenu();
+        closeRealEstateMenu();
+        closeHospitalityMenu();
+        homeMobileDrawer.hidden = false;
+        homeMobileMenuBtn.setAttribute('aria-expanded', 'true');
+        headerEl.classList.add('home-mobile-menu-open');
+    };
+
+    if (homeMobileMenuBtn && homeMobileDrawer) {
+        homeMobileMenuBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            if (homeMobileDrawer.hidden) {
+                openHomeMobileDrawer();
+            } else {
+                closeHomeMobileDrawer();
+            }
+        });
+
+        homeMobileDrawer.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target instanceof HTMLAnchorElement) {
+                closeHomeMobileDrawer();
+            }
+        });
+    }
 
     if (storyMenu && storyTrigger) {
         const storyLinks = Array.from(storyMenu.querySelectorAll('.story-dropdown a'));
@@ -250,6 +293,9 @@
         if (hospitalityMenu && !hospitalityMenu.contains(event.target)) {
             closeHospitalityMenu();
         }
+        if (homeMobileDrawer && !homeMobileDrawer.hidden && headerEl && !headerEl.contains(event.target)) {
+            closeHomeMobileDrawer();
+        }
     });
 
     document.addEventListener('keydown', (event) => {
@@ -257,6 +303,7 @@
             closeStoryMenu();
             closeRealEstateMenu();
             closeHospitalityMenu();
+            closeHomeMobileDrawer();
         }
     });
 
@@ -273,6 +320,7 @@
         closeStoryMenu();
         closeRealEstateMenu();
         closeHospitalityMenu();
+        closeHomeMobileDrawer();
         suppressNavHover();
     }, { passive: true });
 
