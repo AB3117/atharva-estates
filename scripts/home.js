@@ -52,7 +52,6 @@
     const hospitalityMenu = document.getElementById('hospitality-menu');
     const lazyBgCards = Array.from(document.querySelectorAll('[data-bg]'));
     const loadedBgPaths = new Set();
-    const rootEl = document.documentElement;
     const closeDelayMs = 220;
     const closeTimers = {
         story: null,
@@ -132,7 +131,6 @@
     if (realEstateMenu && realEstateTrigger) {
         const stateButtons = Array.from(realEstateMenu.querySelectorAll('.real-estate-status-btn'));
         const statePanels = Array.from(realEstateMenu.querySelectorAll('.real-estate-groups'));
-        const statusCol = realEstateMenu.querySelector('.real-estate-status-col');
 
         const setRealEstateState = (state) => {
             stateButtons.forEach((btn) => {
@@ -140,14 +138,6 @@
             });
             statePanels.forEach((panel) => {
                 panel.classList.toggle('is-active', panel.dataset.rePanel === state);
-            });
-        };
-
-        const setHoveredRealEstateState = (hoveredButton) => {
-            if (!statusCol) return;
-            statusCol.classList.toggle('is-hovering', Boolean(hoveredButton));
-            stateButtons.forEach((btn) => {
-                btn.classList.toggle('is-hovered', btn === hoveredButton);
             });
         };
 
@@ -176,29 +166,7 @@
             btn.addEventListener('click', () => {
                 setRealEstateState(btn.dataset.reState);
             });
-
-            btn.addEventListener('mouseenter', () => {
-                setHoveredRealEstateState(btn);
-            });
-
-            btn.addEventListener('focus', () => {
-                setHoveredRealEstateState(btn);
-            });
         });
-
-        if (statusCol) {
-            statusCol.addEventListener('mouseleave', () => {
-                setHoveredRealEstateState(null);
-            });
-
-            statusCol.addEventListener('focusout', () => {
-                window.requestAnimationFrame(() => {
-                    if (!statusCol.contains(document.activeElement) && !statusCol.matches(':hover')) {
-                        setHoveredRealEstateState(null);
-                    }
-                });
-            });
-        }
     }
 
     if (hospitalityMenu && hospitalityTrigger) {
@@ -243,26 +211,6 @@
             closeHospitalityMenu();
         }
     });
-
-    const suppressNavHover = () => {
-        rootEl.classList.add('nav-hover-suppressed');
-    };
-
-    const releaseNavHoverSuppression = () => {
-        rootEl.classList.remove('nav-hover-suppressed');
-    };
-
-    // Prevent detached dropdown overlays when the page scrolls.
-    window.addEventListener('scroll', () => {
-        closeStoryMenu();
-        closeRealEstateMenu();
-        closeHospitalityMenu();
-        suppressNavHover();
-    }, { passive: true });
-
-    document.addEventListener('mousemove', releaseNavHoverSuppression, { passive: true });
-    document.addEventListener('pointermove', releaseNavHoverSuppression, { passive: true });
-    document.addEventListener('touchstart', releaseNavHoverSuppression, { passive: true });
 
     const enquiryTypeGroups = Array.from(document.querySelectorAll('.contact-enquiry-type'));
     enquiryTypeGroups.forEach((group) => {

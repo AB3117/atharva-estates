@@ -1,1 +1,1 @@
-// Values page uses shared navigation interactions from home.js.
+// Page-specific script entry. Shared interactions are loaded from home.js.

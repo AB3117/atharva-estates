@@ -1,35 +1,37 @@
 /* Page stylesheet entry */
-@import url('common.css?v=20260516r');
+@import url('common.css');
 
 body.leadership-template {
-    --leadership-gutter: clamp(16px, 8.8vw, 164px);
-    background: #ededed;
+    background: #f3f3f3;
     color: #1c1c24;
 }
 
 .leadership-page-main {
-    background: #ededed;
+    background: linear-gradient(
+        to bottom,
+        #f8f8f8 0%,
+        #f6f6f7 52%,
+        #f3f3f3 52%,
+        #f3f3f3 100%
+    );
     overflow-x: hidden;
 }
 
 .leadership-page-intro {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: clamp(30px, 3.1vw, 44px) var(--leadership-gutter) 8px;
-    background: #ededed;
+    max-width: 1290px;
+    margin: 0 auto;
+    padding: 48px 30px 8px;
 }
 
 .leadership-page-intro h1 {
     margin: 0;
     font-family: 'Juana', 'The Seasons', serif;
-    font-size: clamp(82px, 9vw, 158px);
+    font-size: clamp(82px, 10.2vw, 220px);
     line-height: 0.9;
     font-weight: 400;
     letter-spacing: -0.022em;
     color: #c8c8cd;
     text-transform: uppercase;
-    white-space: nowrap;
 }
 
 .leadership-page-intro p {
@@ -37,51 +39,42 @@ body.leadership-template {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: clamp(24px, 2.3vw, 45px);
     line-height: 1.04;
-    font-weight: 300;
+    font-weight: 500;
     color: #49ac45;
     letter-spacing: -0.02em;
     text-transform: uppercase;
 }
 
 .leader-section {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: 0 var(--leadership-gutter);
+    max-width: 1290px;
+    margin: 0 auto;
+    padding: 0 30px;
     border-bottom: 3px solid #cbcbcf;
 }
 
 .leader-section-top {
     display: grid;
     grid-template-columns: minmax(360px, 1fr) minmax(400px, 520px);
-    gap: clamp(16px, 1.8vw, 26px);
-    align-items: stretch;
-    min-height: clamp(360px, 28vw, 430px);
-    background: #ededed;
-}
-
-.leader-section-top .leader-content {
-    align-self: start;
-    padding-top: clamp(38px, 3vw, 54px);
-    padding-bottom: clamp(24px, 2vw, 34px);
+    gap: 22px;
+    align-items: end;
+    min-height: 360px;
 }
 
 .leader-section-bottom {
     display: grid;
     grid-template-columns: minmax(400px, 520px) minmax(360px, 1fr);
-    gap: clamp(18px, 2vw, 30px);
+    gap: 26px;
     align-items: end;
-    min-height: clamp(430px, 34vw, 520px);
+    min-height: 420px;
     border-bottom: 3px solid #39a945;
-    background: #ededed;
 }
 
 .leader-content {
-    padding: 0 0 clamp(28px, 2.8vw, 46px);
+    padding: 0 0 36px;
 }
 
 .leader-section-bottom .leader-content {
-    padding: 0 4px clamp(28px, 2.6vw, 40px) 0;
+    padding: 0 4px 30px 0;
 }
 
 .leader-content h2 {
@@ -136,23 +129,56 @@ body.leadership-template {
 }
 
 .leader-image-milind img {
-    width: min(116%, 640px);
-    margin-right: -10px;
-    margin-top: clamp(-38px, -2.2vw, -18px);
-    transform: scale(1.12);
+    width: min(106%, 560px);
+    margin-right: -16px;
+    transform: scale(1.04);
     transform-origin: center bottom;
 }
 
 .leader-image-atharva img {
-    width: min(118%, 640px);
-    margin-left: -38px;
-    transform: scale(1.12);
+    width: min(110%, 600px);
+    margin-left: -12px;
+    transform: scale(1.04);
     transform-origin: center bottom;
+}
+
+@media (min-width: 1500px) {
+    .leadership-page-intro {
+        max-width: 1380px;
+        padding-top: 34px;
+    }
+
+    .leader-section {
+        max-width: 1380px;
+    }
+
+    .leader-section-top {
+        grid-template-columns: minmax(440px, 1fr) minmax(360px, 500px);
+        min-height: 320px;
+    }
+
+    .leader-section-bottom {
+        grid-template-columns: minmax(360px, 500px) minmax(440px, 1fr);
+        min-height: 360px;
+    }
+
+    .leader-content {
+        padding-bottom: 18px;
+    }
+
+    .leader-section-bottom .leader-content {
+        padding-bottom: 22px;
+    }
+
+    .leader-content p {
+        font-size: clamp(17px, 0.9vw, 21px);
+        line-height: 1.48;
+    }
 }
 
 body.leadership-template footer {
     border-top: 0;
-    background: #ededed;
+    background: #f3f3f3;
     padding-top: 86px;
 }
 
@@ -168,165 +194,13 @@ body.leadership-template .footer-bottom p {
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Leadership page: improve balance at normal desktop (100% zoom) */
-@media (min-width: 941px) and (max-width: 2199px) {
-    body.leadership-template {
-        --leadership-gutter: clamp(22px, 6vw, 132px);
-    }
-
-    .leadership-page-intro {
-        padding-top: clamp(30px, 2.8vw, 48px);
-        padding-bottom: 10px;
-    }
-
-    .leadership-page-intro h1 {
-        font-size: clamp(90px, 7.3vw, 154px);
-    }
-
-    .leadership-page-intro p {
-        margin-top: 10px;
-        font-size: clamp(26px, 2vw, 42px);
-        line-height: 1.04;
-    }
-
-    .leader-section-top {
-        grid-template-columns: minmax(520px, 1fr) minmax(460px, 620px);
-        gap: clamp(18px, 1.8vw, 30px);
-        min-height: clamp(500px, 31vw, 620px);
-    }
-
-    .leader-section-top .leader-content {
-        padding-top: clamp(38px, 2.4vw, 54px);
-        padding-bottom: clamp(20px, 1.6vw, 30px);
-    }
-
-    .leader-section-bottom {
-        grid-template-columns: minmax(480px, 620px) minmax(520px, 1fr);
-        gap: clamp(20px, 2vw, 34px);
-        align-items: end;
-        min-height: clamp(560px, 35vw, 700px);
-    }
-
-    .leader-section-bottom .leader-content {
-        padding: clamp(44px, 2.8vw, 62px) 0 clamp(32px, 2.2vw, 46px) 0;
-        align-self: stretch;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .leader-content h2 {
-        font-size: clamp(46px, 2.6vw, 66px);
-    }
-
-    .leader-content h3 {
-        font-size: clamp(18px, 1.05vw, 24px);
-        margin: 6px 0 16px;
-    }
-
-    .leader-content p {
-        font-size: clamp(16px, 0.88vw, 19px);
-        line-height: 1.48;
-        text-align: left;
-        margin-bottom: clamp(16px, 1.2vw, 24px);
-    }
-
-    .leader-image-milind img {
-        width: min(102%, 620px);
-        margin-right: 0;
-        margin-top: 0;
-        transform: scale(1);
-    }
-
-    .leader-image-atharva {
-        justify-content: center;
-    }
-
-    .leader-image-atharva img {
-        width: min(104%, 640px);
-        margin-left: -10px;
-        margin-top: 0;
-        transform: scale(1);
-    }
-}
-
-/* Leadership page: keep visual balance at browser 50% zoom */
-@media (min-width: 2200px) and (max-width: 2800px) {
-    body.leadership-template {
-        --leadership-gutter: min(8.4vw, 220px);
-    }
-
-    .leadership-page-intro {
-        padding-top: 68px;
-        padding-bottom: 24px;
-    }
-
-    .leadership-page-intro h1 {
-        font-size: clamp(132px, 7.2vw, 190px);
-    }
-
-    .leadership-page-intro p {
-        margin-top: 16px;
-        font-size: clamp(42px, 2.35vw, 58px);
-        line-height: 1.08;
-    }
-
-    .leader-section-top {
-        grid-template-columns: minmax(840px, 1fr) minmax(560px, 760px);
-        gap: 34px;
-        min-height: 650px;
-    }
-
-    .leader-section-bottom {
-        grid-template-columns: minmax(560px, 760px) minmax(840px, 1fr);
-        gap: 38px;
-        min-height: 760px;
-    }
-
-    .leader-section-top .leader-content {
-        padding-top: 70px;
-        padding-bottom: 48px;
-    }
-
-    .leader-section-bottom .leader-content {
-        padding-bottom: 54px;
-    }
-
-    .leader-content h2 {
-        font-size: clamp(76px, 4.2vw, 104px);
-        line-height: 0.95;
-    }
-
-    .leader-content h3 {
-        margin: 12px 0 28px;
-        font-size: 36px;
-    }
-
-    .leader-content p {
-        font-size: 27px;
-        line-height: 1.54;
-        margin-bottom: 30px;
-    }
-
-    .leader-image-milind img {
-        width: min(118%, 900px);
-        margin-right: -18px;
-        margin-top: -24px;
-    }
-
-    .leader-image-atharva img {
-        width: min(120%, 920px);
-        margin-left: -52px;
-    }
-
-    body.leadership-template footer {
-        padding-top: 110px;
-    }
-}
-
 @media (max-width: 1180px) {
-    body.leadership-template {
-        --leadership-gutter: clamp(16px, 6vw, 72px);
+    .leadership-page-intro {
+        padding: 38px 22px 6px;
+    }
+
+    .leader-section {
+        padding: 0 22px;
     }
 
     .leader-section-top {
@@ -337,21 +211,22 @@ body.leadership-template .footer-bottom p {
         grid-template-columns: minmax(320px, 460px) minmax(340px, 1fr);
     }
 
+    .leader-content {
+        padding-bottom: 78px;
+    }
+
+    .leader-section-bottom .leader-content {
+        padding-bottom: 90px;
+    }
 }
 
 @media (max-width: 940px) {
-    body.leadership-template {
-        --leadership-gutter: clamp(14px, 4.5vw, 28px);
-    }
-
     .leadership-page-intro {
-        padding-top: 30px;
-        padding-bottom: 14px;
+        padding: 32px 16px 16px;
     }
 
     .leadership-page-intro h1 {
         line-height: 0.92;
-        white-space: normal;
     }
 
     .leader-section,
@@ -363,24 +238,19 @@ body.leadership-template .footer-bottom p {
     .leader-section-bottom {
         grid-template-columns: 1fr;
         min-height: auto;
-        gap: 12px;
-        padding-top: 14px;
+        gap: 8px;
+        padding-top: 18px;
     }
 
     .leader-content {
         order: 2;
-        padding: 0 0 30px;
+        padding: 0 0 36px;
         text-align: left;
-    }
-
-    .leader-section-top .leader-content {
-        padding-top: 0;
-        padding-bottom: 30px;
     }
 
     .leader-section-bottom .leader-content {
         order: 2;
-        padding: 0 0 30px;
+        padding: 0 0 36px;
     }
 
     .leader-image {
@@ -409,13 +279,8 @@ body.leadership-template .footer-bottom p {
 }
 
 @media (max-width: 620px) {
-    body.leadership-template {
-        --leadership-gutter: clamp(12px, 4vw, 18px);
-    }
-
     .leadership-page-intro {
-        padding-top: 24px;
-        padding-bottom: 10px;
+        padding: 28px 14px 10px;
     }
 
     .leadership-page-intro h1 {
@@ -425,6 +290,10 @@ body.leadership-template .footer-bottom p {
     .leadership-page-intro p {
         margin-top: 8px;
         font-size: clamp(20px, 5.8vw, 30px);
+    }
+
+    .leader-section {
+        padding: 0 14px;
     }
 
     .leader-content h2 {
