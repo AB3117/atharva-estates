@@ -45,7 +45,7 @@
             resizeRafId = null;
             syncLayoutOffsets();
             if (!isHomeMobileViewport()) {
-                closeHomeMobileDrawer();
+                closeSiteMobileDrawer();
             }
         });
     }, { passive: true });
@@ -53,8 +53,20 @@
     const storyMenu = document.getElementById('story-menu');
     const realEstateMenu = document.getElementById('real-estate-menu');
     const hospitalityMenu = document.getElementById('hospitality-menu');
-    const homeMobileMenuBtn = document.getElementById('home-mobile-menu-btn');
-    const homeMobileDrawer = document.getElementById('home-mobile-drawer');
+    const siteMobileMenuBtn =
+        document.getElementById('site-mobile-menu-btn') ||
+        document.getElementById('home-mobile-menu-btn') ||
+        document.getElementById('about-mobile-menu-btn') ||
+        document.getElementById('lead-mobile-menu-btn') ||
+        document.getElementById('values-mobile-menu-btn');
+    const siteMobileDrawer =
+        document.getElementById('site-mobile-drawer') ||
+        document.getElementById('home-mobile-drawer') ||
+        document.getElementById('about-mobile-drawer') ||
+        document.getElementById('lead-mobile-drawer') ||
+        document.getElementById('values-mobile-drawer');
+    const siteMobileCloseBtn = siteMobileDrawer ? siteMobileDrawer.querySelector('.site-mobile-drawer-close') : null;
+    const siteMobileToggles = siteMobileDrawer ? Array.from(siteMobileDrawer.querySelectorAll('.site-mobile-toggle')) : [];
     const lazyBgCards = Array.from(document.querySelectorAll('[data-bg]'));
     const loadedBgPaths = new Set();
     const rootEl = document.documentElement;
@@ -104,39 +116,74 @@
 
     const isHomeMobileViewport = () => window.matchMedia('(max-width: 940px)').matches;
 
-    const closeHomeMobileDrawer = () => {
-        if (!homeMobileDrawer || !homeMobileMenuBtn || !headerEl) return;
-        homeMobileDrawer.hidden = true;
-        homeMobileMenuBtn.setAttribute('aria-expanded', 'false');
-        headerEl.classList.remove('home-mobile-menu-open');
+    const collapseMobileSubmenus = (expandedTargetId = null) => {
+        if (!siteMobileDrawer || siteMobileToggles.length === 0) return;
+        siteMobileToggles.forEach((toggle) => {
+            const targetId = toggle.dataset.mobileTarget;
+            if (!targetId) return;
+            const panel = siteMobileDrawer.querySelector(`#${targetId}`);
+            const shouldExpand = expandedTargetId === targetId;
+            toggle.setAttribute('aria-expanded', shouldExpand ? 'true' : 'false');
+            if (panel) {
+                panel.hidden = !shouldExpand;
+            }
+        });
     };
 
-    const openHomeMobileDrawer = () => {
-        if (!homeMobileDrawer || !homeMobileMenuBtn || !headerEl || !isHomeMobileViewport()) return;
+    const closeSiteMobileDrawer = () => {
+        if (!siteMobileDrawer || !siteMobileMenuBtn || !headerEl) return;
+        siteMobileDrawer.hidden = true;
+        siteMobileMenuBtn.setAttribute('aria-expanded', 'false');
+        headerEl.classList.remove('site-mobile-menu-open', 'home-mobile-menu-open', 'about-mobile-menu-open', 'lead-mobile-menu-open', 'values-mobile-menu-open');
+        collapseMobileSubmenus(null);
+    };
+
+    const openSiteMobileDrawer = () => {
+        if (!siteMobileDrawer || !siteMobileMenuBtn || !headerEl || !isHomeMobileViewport()) return;
         closeStoryMenu();
         closeRealEstateMenu();
         closeHospitalityMenu();
-        homeMobileDrawer.hidden = false;
-        homeMobileMenuBtn.setAttribute('aria-expanded', 'true');
-        headerEl.classList.add('home-mobile-menu-open');
+        siteMobileDrawer.hidden = false;
+        siteMobileMenuBtn.setAttribute('aria-expanded', 'true');
+        headerEl.classList.add('site-mobile-menu-open');
     };
 
-    if (homeMobileMenuBtn && homeMobileDrawer) {
-        homeMobileMenuBtn.addEventListener('click', (event) => {
+    if (siteMobileMenuBtn && siteMobileDrawer) {
+        // Ensure all expandable groups are collapsed on first render.
+        collapseMobileSubmenus(null);
+
+        siteMobileMenuBtn.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
-            if (homeMobileDrawer.hidden) {
-                openHomeMobileDrawer();
+            if (siteMobileDrawer.hidden) {
+                openSiteMobileDrawer();
             } else {
-                closeHomeMobileDrawer();
+                closeSiteMobileDrawer();
             }
         });
 
-        homeMobileDrawer.addEventListener('click', (event) => {
+        siteMobileDrawer.addEventListener('click', (event) => {
             const target = event.target;
             if (target instanceof HTMLAnchorElement) {
-                closeHomeMobileDrawer();
+                closeSiteMobileDrawer();
             }
+        });
+
+        if (siteMobileCloseBtn) {
+            siteMobileCloseBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                closeSiteMobileDrawer();
+            });
+        }
+
+        siteMobileToggles.forEach((toggle) => {
+            toggle.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = toggle.dataset.mobileTarget;
+                if (!targetId) return;
+                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                collapseMobileSubmenus(isExpanded ? null : targetId);
+            });
         });
     }
 
@@ -293,8 +340,8 @@
         if (hospitalityMenu && !hospitalityMenu.contains(event.target)) {
             closeHospitalityMenu();
         }
-        if (homeMobileDrawer && !homeMobileDrawer.hidden && headerEl && !headerEl.contains(event.target)) {
-            closeHomeMobileDrawer();
+        if (siteMobileDrawer && !siteMobileDrawer.hidden && headerEl && !headerEl.contains(event.target)) {
+            closeSiteMobileDrawer();
         }
     });
 
@@ -303,7 +350,7 @@
             closeStoryMenu();
             closeRealEstateMenu();
             closeHospitalityMenu();
-            closeHomeMobileDrawer();
+            closeSiteMobileDrawer();
         }
     });
 
@@ -320,7 +367,7 @@
         closeStoryMenu();
         closeRealEstateMenu();
         closeHospitalityMenu();
-        closeHomeMobileDrawer();
+        closeSiteMobileDrawer();
         suppressNavHover();
     }, { passive: true });
 
