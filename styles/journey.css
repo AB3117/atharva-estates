@@ -8,9 +8,9 @@ body.journey-template {
     --journey-wheel-radius: calc(var(--journey-wheel-size) / 2);
     --journey-wheel-year-size: 44px;
     --journey-milestone-left: clamp(132px, 13vw, 194px);
-    --journey-brand-size: clamp(82px, 5.2vw, 100px);
+    --journey-brand-size: clamp(90px, 5.7vw, 110px);
     --journey-brand-year-ratio-y: 0.528;
-    --journey-brand-left-gap: clamp(92px, 7vw, 118px);
+    --journey-brand-left-gap: clamp(-18px, -1.2vw, 8px);
     --journey-row-gap: 14px;
     --journey-year-slot: 0px;
     --journey-copy-left: 560px;
@@ -363,8 +363,8 @@ body.journey-template {
         --journey-wheel-radius: calc(var(--journey-wheel-size) / 2);
         --journey-wheel-year-size: clamp(36px, 2.8vw, 48px);
         --journey-milestone-left: clamp(108px, 10vw, 176px);
-        --journey-brand-size: clamp(80px, 5vw, 104px);
-        --journey-brand-left-gap: clamp(88px, 6.8vw, 112px);
+        --journey-brand-size: clamp(88px, 5.5vw, 114px);
+        --journey-brand-left-gap: clamp(-10px, -0.8vw, 12px);
         --journey-row-gap: 12px;
         --journey-year-slot: 0px;
         --journey-copy-left: clamp(480px, 46vw, 660px);
@@ -453,8 +453,8 @@ body.journey-template {
         --journey-wheel-radius: calc(var(--journey-wheel-size) / 2);
         --journey-wheel-year-size: clamp(30px, 4.3vw, 38px);
         --journey-milestone-left: clamp(62px, 8vw, 108px);
-        --journey-brand-size: clamp(64px, 8.2vw, 84px);
-        --journey-brand-left-gap: clamp(76px, 7vw, 96px);
+        --journey-brand-size: clamp(70px, 9vw, 92px);
+        --journey-brand-left-gap: clamp(8px, 1vw, 18px);
         --journey-row-gap: 8px;
         --journey-year-slot: 0px;
         --journey-copy-left: clamp(238px, 44vw, 336px);
