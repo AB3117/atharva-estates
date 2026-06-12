@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospitality | Atharva Enterprises</title>
+    <link rel="preload" as="image" href="assets/Logo/Atharva Enterprises Logo.png" type="image/png" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/Icons/Instagram_icon.png" type="image/png" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/Icons/Facebook_icon.png" type="image/png" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/Icons/Whatsapp_Icon.png" type="image/png" fetchpriority="high">
     <link rel="preload" as="image" href="assets/Hospitality/optimized/BAnner.jpg" type="image/jpeg" fetchpriority="high">
-    <link rel="stylesheet" href="styles/hospitality.css">
+    <link rel="stylesheet" href="styles/hospitality.css?v=20260525n13">
 </head>
 <body class="hospitality-template">
 
@@ -14,6 +18,7 @@
             <a class="logo" href="index.html" aria-label="Atharva Enterprises Home">
                 <img class="logo-img" src="assets/Logo/Atharva Enterprises Logo.png" alt="Atharva Enterprises Logo">
             </a>
+            <button type="button" class="site-mobile-menu" id="site-mobile-menu-btn" aria-label="Open menu" aria-controls="site-mobile-drawer" aria-expanded="false">&#9776;</button>
             <nav>
                 <div class="nav-story" id="story-menu">
                     <a href="#" class="story-trigger" id="story-trigger" aria-haspopup="true" aria-expanded="false">Our Story</a>
@@ -21,7 +26,6 @@
                         <a href="about.html" role="menuitem">About</a>
                         <a href="values.html" role="menuitem">Values</a>
                         <a href="leadership.html" role="menuitem">Leadership</a>
-                        <a href="journey.html" role="menuitem">Journey</a>
                     </div>
                 </div>
                 <div class="nav-real-estate" id="real-estate-menu">
@@ -87,23 +91,58 @@
             </nav>
             <a href="contact.html" class="btn-outline">Book A Site Visit</a>
         </div>
+        <div class="site-mobile-drawer" id="site-mobile-drawer" hidden>
+            <button type="button" class="site-mobile-drawer-close" aria-label="Close menu">&times;</button>
+            <div class="site-mobile-drawer-links">
+                <a href="index.html" class="site-mobile-link">Home</a>
+                <button type="button" class="site-mobile-link site-mobile-toggle" data-mobile-target="mobile-submenu-story" aria-expanded="false">Our Story</button>
+                <div class="site-mobile-submenu" id="mobile-submenu-story" hidden>
+                    <a href="about.html">About</a>
+                    <a href="values.html">Values</a>
+                    <a href="leadership.html">Leadership</a>
+                </div>
+                <button type="button" class="site-mobile-link site-mobile-toggle" data-mobile-target="mobile-submenu-real-estate" aria-expanded="false">Real Estate</button>
+                <div class="site-mobile-submenu" id="mobile-submenu-real-estate" hidden>
+                    <a href="real-estate-completed.html">Completed</a>
+                    <a href="real-estate-completed.html#projects-residential">Residential</a>
+                    <a href="real-estate-completed.html#projects-commercial">Commercial</a>
+                    <a href="real-estate-completed.html#projects-mixed-use">Mixed-Use</a>
+                    <a href="real-estate-upcoming.html">Upcoming</a>
+                </div>
+                <button type="button" class="site-mobile-link site-mobile-toggle" data-mobile-target="mobile-submenu-hospitality" aria-expanded="false">Hospitality</button>
+                <div class="site-mobile-submenu" id="mobile-submenu-hospitality" hidden>
+                    <a href="hospitality.html" aria-current="page">Enrise by Sayaji</a>
+                </div>
+                <a href="contact.html" class="site-mobile-link">Contact</a>
+                <a href="contact.html" class="site-mobile-link site-mobile-cta">Book A Site Visit</a>
+            </div>
+            <div class="site-mobile-drawer-brand">
+                <img class="site-mobile-drawer-logo" src="assets/Logo/Atharva Enterprises Logo.png" alt="Atharva Enterprises Logo" loading="lazy" decoding="async">
+                <div class="site-mobile-drawer-social">
+                    <a href="#" aria-label="Instagram"><img src="assets/Icons/Instagram_icon.png" alt="Instagram" loading="eager" fetchpriority="high" decoding="async"></a>
+                    <a href="#" aria-label="Facebook"><img src="assets/Icons/Facebook_icon.png" alt="Facebook" loading="eager" fetchpriority="high" decoding="async"></a>
+                    <a href="#" aria-label="WhatsApp"><img src="assets/Icons/Whatsapp_Icon.png" alt="WhatsApp" loading="eager" fetchpriority="high" decoding="async"></a>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main class="hospitality-page-main">
         <section class="hospitality-hero" aria-label="Enrise by Sayaji hero banner">
             <div class="hospitality-hero-copy">
-                <h1>Hotel full<br><span class="hospitality-hero-line-two">of Stories,</span></h1>
+                <h1>Hotel full<br><span class="hospitality-hero-line-two">of Stories</span></h1>
                 <p>A Building with a Soul</p>
                 <img src="assets/Hospitality/Enrise Logo.png" alt="Enrise by Sayaji logo" class="hospitality-enrise-logo" loading="eager" fetchpriority="high" decoding="async">
             </div>
             <div class="hospitality-hero-media">
                 <img src="assets/Hospitality/optimized/BAnner.jpg" alt="Hotel Enrise by Sayaji building facade" class="hospitality-banner" loading="eager" fetchpriority="high" decoding="async">
+                <a href="contact.html" class="hospitality-hero-cta">KNOW MORE <span aria-hidden="true">&rarr;</span></a>
             </div>
         </section>
 
         <section class="hospitality-section hospitality-celebration">
             <div class="hospitality-center-head">
-                <h2>Built to celebrate your<br>milestone moments</h2>
+                <h2><span class="line-one">Built to celebrate your</span><span class="line-two">milestone moments</span></h2>
                 <p>Memories that stay with you</p>
             </div>
 
@@ -185,11 +224,11 @@
 
             <div class="hospitality-horizon-collage">
                 <div class="hospitality-collage-cell hospitality-collage-image">
-                    <img src="assets/Hospitality/optimized/Horizan 2.jpg" alt="Horizon dining interior" loading="lazy" decoding="async">
+                    <img src="assets/Hospitality/optimized/Horizan.jpg" alt="Horizon rooftop lounge" loading="lazy" decoding="async">
                 </div>
                 <div class="hospitality-collage-cell hospitality-collage-word"><span>Horizon</span></div>
                 <div class="hospitality-collage-cell hospitality-collage-image">
-                    <img src="assets/Hospitality/optimized/Horizan 3.jpg" alt="Horizon restaurant hall" loading="lazy" decoding="async">
+                    <img src="assets/Hospitality/optimized/Horizan 2.jpg" alt="Horizon dining interior" loading="lazy" decoding="async">
                 </div>
 
                 <div class="hospitality-collage-cell hospitality-collage-word"><span>Horizon</span></div>
@@ -221,12 +260,23 @@
 
             <div class="hospitality-cafe-bottom-grid">
                 <div class="hospitality-cafe-bottom-image">
-                    <img src="assets/Hospitality/optimized/Cafe Calido 2.jpg" alt="Cafe Calido dish" loading="lazy" decoding="async">
+                    <img src="assets/Hospitality/optimized/Cafe Calido.jpg" alt="Cafe Calido interior seating" loading="lazy" decoding="async">
                 </div>
-                <div class="hospitality-cafe-bottom-word">afe</div>
+                <div class="hospitality-cafe-bottom-word">Cafe</div>
                 <div class="hospitality-cafe-bottom-image">
-                    <img src="assets/Hospitality/optimized/Cafe Calido 3.jpg" alt="Cafe Calido dessert" loading="lazy" decoding="async">
+                    <img src="assets/Hospitality/optimized/Cafe Calido 2.jpg" alt="Cafe Calido plated dish" loading="lazy" decoding="async">
                 </div>
+            </div>
+        </section>
+
+        <section class="hospitality-location" aria-label="Enrise by Sayaji location">
+            <div class="hospitality-location-card">
+                <p>ENRISE BY SAYAJI, OPPOSITE JOGGING TRACK,<br>SHRI RAM NAGAR, NASHIK, MAHARASHTRA 422009</p>
+                <p>LANDLINE : <a href="tel:+912532953777">+91 253 295 3777</a> | PHONE NO : <a href="tel:+917401295555">+91 74012 95555</a></p>
+                <p><a href="mailto:reservations.enrisenashik@sayajihotels.com">reservations.enrisenashik@sayajihotels.com</a></p>
+            </div>
+            <div class="hospitality-location-map">
+                <img src="assets/Hospitality/Enrise Map.png" alt="Aerial map view of Enrise by Sayaji Nashik location" loading="lazy" decoding="async">
             </div>
         </section>
     </main>
@@ -240,11 +290,9 @@
                     </div>
                     <p class="footer-desc">Over the decades, Atharva Enterprises journey has evolved into more than just building structures; it has been about understanding how people live and what truly makes a space feel complete. Every project is designed with a singular intent: making life simpler, more comfortable, and more meaningful.</p>
                     <div class="social-icons">
-                        <a href="#" aria-label="Instagram"><img src="assets/Icons/Instagram_icon.png" alt="Instagram" loading="lazy" decoding="async"></a>
-                        <a href="#" aria-label="Facebook"><img src="assets/Icons/Facebook_icon.png" alt="Facebook" loading="lazy" decoding="async"></a>
-                        <a href="#" aria-label="LinkedIn"><img src="assets/Icons/Linkedin_icon.png" alt="LinkedIn" loading="lazy" decoding="async"></a>
-                        <a href="#" aria-label="WhatsApp"><img src="assets/Icons/Whatsapp_Icon.png" alt="WhatsApp" loading="lazy" decoding="async"></a>
-                        <a href="#" aria-label="YouTube"><img src="assets/Icons/Youtube_icon.png" alt="YouTube" loading="lazy" decoding="async"></a>
+                        <a href="#" aria-label="Instagram"><img src="assets/Icons/Instagram_icon.png" alt="Instagram" loading="eager" fetchpriority="high" decoding="async"></a>
+                        <a href="#" aria-label="Facebook"><img src="assets/Icons/Facebook_icon.png" alt="Facebook" loading="eager" fetchpriority="high" decoding="async"></a>
+                        <a href="#" aria-label="WhatsApp"><img src="assets/Icons/Whatsapp_Icon.png" alt="WhatsApp" loading="eager" fetchpriority="high" decoding="async"></a>
                     </div>
                 </div>
 
@@ -254,7 +302,6 @@
                         <li><a href="about.html">ABOUT</a></li>
                         <li><a href="values.html">VALUES</a></li>
                         <li><a href="leadership.html">LEADERSHIP</a></li>
-                        <li><a href="journey.html">JOURNEY</a></li>
                     </ul>
                 </div>
 
@@ -300,21 +347,7 @@
         </div>
     </footer>
 
-    <script src="scripts/home.js"></script>
+    <script src="scripts/home.js?v=20260523n2"></script>
     <script src="scripts/hospitality.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
