@@ -135,6 +135,33 @@ function syncJourneyCopyPosition() {
     const copy = document.querySelector('.journey-copy');
     if (!heroContent || !projects || !copy) return;
 
+    const isStandardDesktop = window.matchMedia('(min-width: 941px) and (max-width: 2199px)').matches;
+
+    if (isStandardDesktop) {
+        // Keep copy anchored to CSS position on desktop.
+        copy.style.top = '';
+
+        // Reset any previous lift before measuring.
+        projects.style.marginTop = '0px';
+
+        const heroRect = heroContent.getBoundingClientRect();
+        const projectsRect = projects.getBoundingClientRect();
+        const copyRect = copy.getBoundingClientRect();
+        const minGap = 22;
+
+        const projectsBottom = projectsRect.bottom - heroRect.top;
+        const copyTop = copyRect.top - heroRect.top;
+        const overlap = projectsBottom - (copyTop - minGap);
+
+        // If projects would push into copy space, lift projects upward just enough.
+        if (overlap > 0) {
+            projects.style.marginTop = `${-Math.ceil(overlap)}px`;
+        }
+        return;
+    }
+
+    // Preserve existing behavior for non-desktop breakpoints.
+    projects.style.marginTop = '0px';
     const heroRect = heroContent.getBoundingClientRect();
     const projectsRect = projects.getBoundingClientRect();
     const oneLineGap = 22;

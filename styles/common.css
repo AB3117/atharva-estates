@@ -388,7 +388,7 @@ nav>a:hover,
     flex-direction: column;
     gap: 10px;
     min-width: 120px;
-    padding-top: 1px;
+    padding-top: 0;
 }
 
 .real-estate-status-btn {
@@ -400,7 +400,7 @@ nav>a:hover,
     font-family: 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
-    line-height: 1.15;
+    line-height: 1;
     text-transform: uppercase;
     color: #000000;
     transition: color 0.2s ease, transform 0.16s ease, opacity 0.2s ease;
@@ -437,7 +437,8 @@ nav>a:hover,
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: start;
     gap: 28px;
-    padding-top: 2px;
+    padding-top: 0;
+    margin-top: -4px;
 }
 
 .real-estate-groups.is-active {
@@ -463,7 +464,7 @@ nav>a:hover,
     font-family: 'HelveticaNeueMedium', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     font-weight: 550;
-    line-height: 1.15;
+    line-height: 1;
     text-transform: uppercase;
     color: #000000;
     white-space: nowrap;
@@ -699,24 +700,25 @@ nav>a:hover,
     .real-estate-status-col {
         gap: 24px;
         min-width: 260px;
-        padding-top: 6px;
+        padding-top: 0;
     }
 
     .real-estate-status-btn {
         font-size: 30px;
-        line-height: 1.06;
+        line-height: 1;
     }
 
     .real-estate-groups {
         gap: 68px;
-        padding-top: 8px;
+        padding-top: 0;
+        margin-top: -8px;
     }
 
     .real-estate-group h5,
     .real-estate-group-link {
         margin-bottom: 20px;
         font-size: 30px;
-        line-height: 1.05;
+        line-height: 1;
     }
 
     .real-estate-group li {
@@ -940,12 +942,14 @@ nav>a:hover,
 
     .real-estate-status-btn {
         font-size: 13px;
+        line-height: 1;
     }
 
     .real-estate-groups {
         display: none;
         gap: 16px;
         flex-wrap: wrap;
+        margin-top: 0;
     }
 
     .real-estate-groups.is-active {
@@ -961,6 +965,7 @@ nav>a:hover,
     .real-estate-group-link {
         font-size: 12px;
         margin-bottom: 8px;
+        line-height: 1;
     }
 
     .real-estate-group li {
@@ -1673,6 +1678,15 @@ nav>a:hover,
     color: #060606;
 }
 
+.re-completed-head h2 {
+    font-family: 'The Seasons', 'Juana', serif;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1;
+    color: #090909;
+    margin: 0;
+}
+
 .re-page-subtitle {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 16px;
@@ -1838,14 +1852,15 @@ nav>a:hover,
     padding-left: 2px;
 }
 
-.re-completed-head {
-    margin-top: 8px;
+.real-estate-page-main .re-completed-head.container {
+    margin-top: 50px;
     padding-bottom: 16px;
-    max-width: var(--re-content-max-width);
+    max-width: var(--re-featured-max-width);
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: max-content max-content;
+    justify-content: start;
     align-items: center;
-    gap: 24px;
+    gap: clamp(420px, 32vw, 900px);
 }
 
 .re-completed-title-wrap {
@@ -1853,15 +1868,6 @@ nav>a:hover,
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-}
-
-.re-completed-head h2 {
-    font-family: 'The Seasons', 'Juana', serif;
-    font-size: 36px;
-    font-weight: 400;
-    line-height: 1;
-    color: #090909;
-    margin: 0;
 }
 
 .re-completed-subtitle {
@@ -1925,7 +1931,7 @@ nav>a:hover,
 }
 
 .re-city-panel .re-category-block + .re-category-block {
-    margin-top: 26px;
+    margin-top: 84px;
 }
 
 .re-city-panel .re-category-block:first-child {
@@ -1968,7 +1974,7 @@ nav>a:hover,
 }
 
 .re-category-content {
-    padding-top: 16px;
+    padding-top: 30px;
     width: min(100%, var(--re-section-inner-max));
     margin-left: auto;
     margin-right: auto;
@@ -2343,7 +2349,7 @@ nav>a:hover,
     }
 
     .re-completed-head h2 {
-        font-size: 36px;
+        font-size: 30px;
     }
 
     .re-city-btn {
@@ -2430,7 +2436,7 @@ nav>a:hover,
     }
 
     .re-featured-section {
-        padding-bottom: 56px;
+        padding-bottom: 72px;
     }
 
     .re-page-title {
@@ -2450,12 +2456,25 @@ nav>a:hover,
         grid-template-columns: 1fr;
         justify-items: start;
         gap: 16px;
-        margin-top: 12px;
+        margin-top: 20px;
         padding-bottom: 12px;
     }
 
+    .real-estate-page-main .re-completed-head.container {
+        grid-template-columns: 1fr;
+        justify-content: start;
+        gap: 16px;
+        margin-top: 20px;
+    }
+
+    .real-estate-page-main .re-completed-head.container .re-city-switcher {
+        display: inline-flex;
+        visibility: visible;
+        opacity: 1;
+    }
+
     .re-completed-head h2 {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     .re-city-btn {
@@ -2507,6 +2526,14 @@ nav>a:hover,
         font-size: 23px;
     }
 
+    .re-category-content {
+        padding-top: 54px;
+    }
+
+    .real-estate-page-main .re-category-content {
+        padding-top: 60px !important;
+    }
+
     .re-residential-grid,
     .re-mixed-grid {
         grid-template-columns: 1fr;
@@ -2542,8 +2569,8 @@ nav>a:hover,
     }
 
     .re-completed-head {
-        margin-top: 10px;
-        gap: 12px;
+        margin-top: 16px;
+        gap: 14px;
     }
 
     .re-completed-title-wrap {
@@ -2577,6 +2604,10 @@ nav>a:hover,
         margin-top: 24px;
     }
 
+    .re-category-content {
+        padding-top: 30px;
+    }
+
     .re-city-panel .re-category-block + .re-category-block {
         margin-top: 18px;
     }
@@ -2601,7 +2632,11 @@ nav>a:hover,
     }
 
     .re-category-content {
-        padding-top: 22px;
+        padding-top: 52px;
+    }
+
+    .real-estate-page-main .re-category-content {
+        padding-top: 50px !important;
     }
 
     .re-city-panel .re-category-block:first-child .re-category-content h4,
@@ -2817,7 +2852,7 @@ nav>a:hover,
     }
 
     .re-completed-head h2 {
-        font-size: clamp(40px, 2vw, 62px);
+        font-size: clamp(34px, 1.85vw, 54px);
     }
 
     .re-completed-subtitle {
@@ -2827,6 +2862,14 @@ nav>a:hover,
     .re-city-btn {
         font-size: clamp(20px, 1.05vw, 32px);
         padding: clamp(7px, 0.45vw, 16px) clamp(22px, 1.2vw, 40px);
+    }
+
+    .re-city-panel .re-category-block + .re-category-block {
+        margin-top: clamp(96px, 4.2vw, 160px);
+    }
+
+    .re-category-content {
+        padding-top: clamp(36px, 1.9vw, 56px);
     }
 
     .re-banner h3 {
@@ -2884,6 +2927,10 @@ nav>a:hover,
         --re-featured-max-width: min(92vw, 3020px);
     }
 
+    .real-estate-page-main .re-completed-head.container {
+        margin-top: 104px;
+    }
+
     .re-featured-card {
         min-height: 420px;
     }
@@ -2898,6 +2945,10 @@ nav>a:hover,
     .real-estate-page-main {
         --re-content-max-width: min(92vw, 2360px);
         --re-section-inner-max: min(92vw, 2360px);
+    }
+
+    .real-estate-page-main .re-completed-head.container {
+        margin-top: 90px;
     }
 
     .re-featured-grid.is-pune-view .re-featured-card {
@@ -5249,7 +5300,7 @@ footer {
     }
 
     .re-completed-head h2 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .reu-intro h2 {
@@ -5262,18 +5313,18 @@ footer {
 }
 
 .hospitality-page-main {
-    background: #f4f4f4;
+    background: #ffffff;
     overflow-x: hidden;
 }
 
 body.hospitality-template {
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: 300;
-    background: #f4f4f4;
+    background: #ffffff;
     color: #111;
 }
 
-body.hospitality-template p {
+body.hospitality-template .hospitality-page-main p {
     font-weight: 300;
 }
 
@@ -5331,6 +5382,7 @@ body.hospitality-template p {
 }
 
 .hospitality-hero-media {
+    position: relative;
     overflow: hidden;
 }
 
@@ -5342,6 +5394,41 @@ body.hospitality-template p {
     object-position: right center;
     transform: scale(1.12);
     transform-origin: right center;
+}
+
+.hospitality-hero-cta {
+    position: absolute;
+    top: clamp(72px, 8.6vw, 132px);
+    left: clamp(28px, 4vw, 64px);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px 10px;
+    border: 2px solid rgba(255, 255, 255, 0.92);
+    background: transparent;
+    color: #fff;
+    font-family: 'Aptos', 'Helvetica Neue', Arial, sans-serif;
+    font-size: clamp(15px, 1.2vw, 18px);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    z-index: 2;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.hospitality-hero-cta span {
+    font-size: 1.28em;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+.hospitality-hero-cta:hover,
+.hospitality-hero-cta:focus-visible {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border-color: #fff;
 }
 
 .hospitality-celebration {
@@ -5537,30 +5624,94 @@ body.hospitality-template p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f4f4f4;
+    background: #ffffff;
     min-height: var(--hospitality-tile-height);
     overflow: hidden;
+    position: relative;
 }
 
 .hospitality-collage-word span {
     display: block;
     white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.hospitality-horizon-collage .hospitality-collage-word:nth-child(2) span {
-    transform: translateX(-10%);
+.hospitality-horizon-collage .hospitality-collage-word::before,
+.hospitality-horizon-collage .hospitality-collage-word::after {
+    content: 'Horizon';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-140%, -50%);
+    white-space: nowrap;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    pointer-events: none;
+    animation: horizon-loop-ltr 14s linear infinite;
 }
 
-.hospitality-horizon-collage .hospitality-collage-word:nth-child(4) span {
-    transform: translateX(-30%);
+.hospitality-horizon-collage .hospitality-collage-word::after {
+    animation-delay: -7s;
 }
 
-.hospitality-horizon-collage .hospitality-collage-word:nth-child(6) span {
-    transform: translateX(-52%);
+.hospitality-cafe-bottom-word {
+    font-family: 'The Seasons', serif;
+    font-size: clamp(180px, 19vw, 340px);
+    color: rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    min-height: var(--hospitality-tile-height);
+    overflow: hidden;
+    position: relative;
 }
 
-.hospitality-horizon-collage .hospitality-collage-word:nth-child(8) span {
-    transform: translateX(26%);
+.hospitality-cafe-bottom-word {
+    color: transparent;
+}
+
+.hospitality-cafe-bottom-word::before,
+.hospitality-cafe-bottom-word::after {
+    content: 'Cafe Calido';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(140%, -50%);
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 0.06);
+    font: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    pointer-events: none;
+    animation: cafe-loop-rtl 14s linear infinite;
+}
+
+.hospitality-cafe-bottom-word::after {
+    animation-delay: -5.5s;
+}
+
+@keyframes horizon-loop-ltr {
+    from {
+        transform: translate(-140%, -50%);
+    }
+
+    to {
+        transform: translate(140%, -50%);
+    }
+}
+
+@keyframes cafe-loop-rtl {
+    from {
+        transform: translate(140%, -50%);
+    }
+
+    to {
+        transform: translate(-140%, -50%);
+    }
 }
 
 .hospitality-cafe {
@@ -5627,15 +5778,75 @@ body.hospitality-template p {
     display: block;
 }
 
-.hospitality-cafe-bottom-word {
-    font-family: 'The Seasons', serif;
-    font-size: clamp(180px, 19vw, 340px);
-    color: rgba(0, 0, 0, 0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f4f4f4;
-    min-height: var(--hospitality-tile-height);
+.hospitality-location {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: clamp(86px, 8.5vw, 132px) 0 0;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.hospitality-location-card {
+    position: relative;
+    z-index: 2;
+    width: min(640px, 64vw);
+    margin: 0 auto -70px;
+    padding: 38px 42px 52px;
+    border-radius: 28px;
+    background: #e8e7e7;
+    color: #000;
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+}
+
+.hospitality-location-card p {
+    margin: 0;
+    font-weight: 900;
+    -webkit-text-stroke: 0.2px currentColor;
+    text-shadow: 0.25px 0 currentColor;
+}
+
+.hospitality-location-card p + p {
+    margin-top: 12px;
+}
+
+.hospitality-location-card p:nth-child(2) {
+    font-family: 'Aptos', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    -webkit-text-stroke-width: 0.8px;
+    text-shadow: 0.9px 0 currentColor;
+}
+
+.hospitality-location-card a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+.hospitality-location-card a:hover,
+.hospitality-location-card a:focus-visible {
+    text-decoration: underline;
+}
+
+.hospitality-location-map {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+}
+
+.hospitality-location-map img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .hospitality-horizon-image-wrap,
@@ -5723,6 +5934,15 @@ body.hospitality-template p {
     .hospitality-enrise-logo {
         width: 230px;
         margin-top: 90px;
+    }
+
+    .hospitality-hero-cta {
+        top: 136px;
+        left: 78px;
+        gap: 14px;
+        padding: 12px 20px 13px;
+        font-size: 24px;
+        border-width: 3px;
     }
 
     .hospitality-celebration {
@@ -5816,6 +6036,41 @@ body.hospitality-template p {
     .hospitality-cafe-bottom-word {
         font-size: clamp(330px, 19vw, 560px);
     }
+
+    .hospitality-location {
+        padding-top: 220px;
+    }
+
+    .hospitality-location-card {
+        width: min(1180px, 56vw);
+        margin-bottom: -128px;
+        padding: 72px 76px 98px;
+        border-radius: 52px;
+        font-size: 28px;
+        line-height: 1.5;
+    }
+
+    .hospitality-location-card p + p {
+        margin-top: 24px;
+    }
+
+    .hospitality-location-card p:nth-child(2) {
+        font-size: 35px;
+    }
+
+    .hospitality-location-map {
+        max-width: none;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1600px) {
+    .hospitality-celebration {
+        padding-bottom: 88px;
+    }
+
+    .hospitality-culinary {
+        padding-top: 34px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -5845,6 +6100,14 @@ body.hospitality-template p {
         font-size: 58px;
     }
 
+    .hospitality-hero-cta {
+        top: 56px;
+        left: 22px;
+        gap: 8px;
+        padding: 8px 12px 9px;
+        font-size: 14px;
+    }
+
     .hospitality-center-head h2 {
         font-size: 54px;
     }
@@ -5859,6 +6122,22 @@ body.hospitality-template p {
 
     .hospitality-cafe-title {
         font-size: 56px;
+    }
+
+    .hospitality-location {
+        padding-top: 72px;
+    }
+
+    .hospitality-location-card {
+        width: min(620px, 72vw);
+        margin-bottom: -58px;
+        padding: 30px 32px 42px;
+        border-radius: 24px;
+        font-size: 12px;
+    }
+
+    .hospitality-location-card p:nth-child(2) {
+        font-size: 15px;
     }
 }
 
@@ -5875,6 +6154,10 @@ body.hospitality-template p {
 
     .hospitality-hero-copy h1 {
         font-size: 48px;
+    }
+
+    .hospitality-hero-cta {
+        display: none;
     }
 
     .hospitality-hero-media img,
@@ -6004,6 +6287,21 @@ body.hospitality-template p {
     .hospitality-cafe-copy {
         max-width: none;
         justify-self: start;
+    }
+
+    .hospitality-location {
+        padding-top: 58px;
+    }
+
+    .hospitality-location-card {
+        width: min(540px, 78vw);
+        margin-bottom: -48px;
+        padding: 27px 24px 37px;
+        font-size: 11px;
+    }
+
+    .hospitality-location-card p:nth-child(2) {
+        font-size: 13px;
     }
 }
 
@@ -6138,6 +6436,33 @@ body.hospitality-template p {
         font-size: clamp(86px, 22vw, 116px);
         min-height: 112px;
     }
+
+    .hospitality-location {
+        padding-top: 44px;
+    }
+
+    .hospitality-location-card {
+        width: calc(100% - 38px);
+        margin-bottom: -38px;
+        padding: 22px 14px 30px;
+        border-radius: 16px;
+        font-size: 9px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .hospitality-location-card p:nth-child(2) {
+        font-size: 10px;
+    }
+
+    .hospitality-location-card p + p {
+        margin-top: 6px;
+    }
+
+    .hospitality-location-map {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -6216,6 +6541,12 @@ body.hospitality-template p {
     .hospitality-cafe-bottom-word {
         font-size: clamp(72px, 20vw, 96px);
         min-height: 96px;
+    }
+
+    .hospitality-location-card {
+        width: calc(100% - 24px);
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
@@ -6784,13 +7115,18 @@ body.hospitality-template p {
         cursor: pointer;
     }
 
+    .site-mobile-drawer .site-mobile-toggle {
+        justify-content: flex-start;
+        gap: 4px;
+    }
+
     .site-mobile-drawer .site-mobile-toggle::after {
         content: '';
         width: 9px;
         height: 9px;
         flex: 0 0 9px;
         background: url('../assets/Icons/drawer-chevron-down.svg') center / contain no-repeat;
-        margin-left: 8px;
+        margin-left: 0;
     }
 
     .site-mobile-drawer .site-mobile-toggle[aria-expanded="true"] {
@@ -6820,10 +7156,15 @@ body.hospitality-template p {
         background: #e1e4e7;
         color: #686d73;
         font-size: 8.5px;
-        font-weight: 700;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.01em;
         text-decoration: none;
+    }
+
+    .site-mobile-submenu#mobile-submenu-real-estate a:first-child,
+    .site-mobile-submenu#mobile-submenu-real-estate a:last-child {
+        font-weight: 900;
     }
 
     .site-mobile-drawer .site-mobile-cta {
@@ -6973,6 +7314,7 @@ body.hospitality-template p {
         border: 1px solid #d4d4d4;
         border-radius: 14px;
         background: #ffffff;
+        overflow: hidden;
         transform: none;
         width: min(92%, 372px);
         margin-left: auto;
@@ -6990,6 +7332,8 @@ body.hospitality-template p {
         background-size: cover !important;
         background-position: center center !important;
         background-repeat: no-repeat !important;
+        border-radius: 13px 13px 0 0;
+        margin: 0;
     }
 
     body.home-template .project-info {
@@ -7417,10 +7761,673 @@ body.hospitality-template p {
     }
 }
 
-@media (min-width: 391px) and (max-width: 940px) {
+/* Hospitality mobile composition: match HOSPITALITY PDF */
+@media (max-width: 940px) {
+    body.hospitality-template .hospitality-page-main {
+        background: #ffffff;
+    }
+
+    body.hospitality-template .hospitality-section {
+        max-width: none;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    body.hospitality-template .hospitality-hero {
+        display: block;
+        min-height: clamp(420px, 96vw, 540px);
+        aspect-ratio: 1 / 1;
+        background: #f3f7e4 url('../assets/Hospitality/ENRISE MOBILE BANNER.png') center bottom / cover no-repeat;
+        position: relative;
+    }
+
+    body.hospitality-template .hospitality-hero-copy {
+        padding: 14px 10px 0;
+        background: transparent;
+    }
+
+    body.hospitality-template .hospitality-hero-copy h1 {
+        font-size: clamp(36px, 11.2vw, 52px);
+        line-height: 0.92;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    body.hospitality-template .hospitality-hero-line-two {
+        margin-left: 0;
+    }
+
+    body.hospitality-template .hospitality-hero-copy p {
+        font-size: clamp(14px, 4.2vw, 19px);
+        line-height: 1.05;
+    }
+
+    body.hospitality-template .hospitality-enrise-logo {
+        display: none;
+    }
+
+    body.hospitality-template .hospitality-hero-media {
+        display: none !important;
+    }
+
+    body.hospitality-template .hospitality-hero-media img,
+    body.hospitality-template .hospitality-banner {
+        display: block;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: cover;
+        object-position: center;
+        transform: none !important;
+    }
+
+    body.hospitality-template .hospitality-celebration {
+        padding-top: 56px;
+        padding-bottom: 34px;
+    }
+
+    body.hospitality-template .hospitality-center-head {
+        margin-bottom: 40px;
+        padding: 0 22px;
+    }
+
+    body.hospitality-template .hospitality-center-head h2 {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: clamp(22px, 6.9vw, 32px);
+        line-height: 1.04;
+        letter-spacing: 0;
+    }
+
+    body.hospitality-template .hospitality-celebration .hospitality-center-head h2 {
+        max-width: 300px;
+    }
+
+    body.hospitality-template .hospitality-celebration .hospitality-center-head h2 .line-one,
+    body.hospitality-template .hospitality-celebration .hospitality-center-head h2 .line-two {
+        display: block;
+    }
+
+    body.hospitality-template .hospitality-celebration .hospitality-center-head h2 .line-one {
+        white-space: nowrap;
+    }
+
+    body.hospitality-template .hospitality-center-head p {
+        font-size: clamp(10px, 3.2vw, 14px);
+        margin-top: 12px;
+    }
+
+    body.hospitality-template .hospitality-venues {
+        gap: 26px;
+    }
+
+    body.hospitality-template .hospitality-venue {
+        gap: 10px;
+    }
+
+    body.hospitality-template .hospitality-venue-image-wrap img {
+        height: auto;
+    }
+
+    body.hospitality-template .hospitality-venue-copy {
+        padding: 14px 18px 20px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "title meta"
+            "desc desc";
+        column-gap: 10px;
+        row-gap: 10px;
+        align-items: start;
+    }
+
+    body.hospitality-template .hospitality-venue-copy h3 {
+        grid-area: title;
+        font-size: clamp(44px, 12vw, 62px);
+        line-height: 0.9;
+        margin: 0;
+    }
+
+    body.hospitality-template .hospitality-venue-copy p {
+        grid-area: desc;
+        margin: 0;
+        font-size: clamp(10px, 2.8vw, 12px);
+        line-height: 1.45;
+        max-width: none;
+    }
+
+    body.hospitality-template .hospitality-venue-meta,
+    body.hospitality-template .hospitality-venue.is-reverse .hospitality-venue-meta {
+        grid-area: meta;
+        margin-top: 4px;
+        justify-self: start;
+        align-items: flex-start;
+        text-align: left;
+        font-size: clamp(10px, 2.7vw, 12px);
+        line-height: 1.18;
+        letter-spacing: 0;
+        font-weight: 400;
+        gap: 1px;
+    }
+
+    body.hospitality-template .hospitality-culinary {
+        padding-top: 24px;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    body.hospitality-template .hospitality-center-head-culinary {
+        margin-bottom: 14px;
+        order: 1;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    body.hospitality-template .hospitality-horizon-collage {
+        order: 2;
+        position: relative;
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: #ffffff;
+    }
+
+    body.hospitality-template .hospitality-horizon-collage > * {
+        display: none;
+    }
+
+    body.hospitality-template .hospitality-horizon-collage .hospitality-collage-image:nth-child(1),
+    body.hospitality-template .hospitality-horizon-collage .hospitality-collage-image:nth-child(3) {
+        display: block;
+    }
+
+    body.hospitality-template .hospitality-horizon-collage::after {
+        content: 'Horizon';
+        position: absolute;
+        left: 50%;
+        bottom: 24px;
+        transform: translateX(-50%);
+        font-family: 'The Seasons', serif;
+        font-size: clamp(40px, 11.2vw, 56px);
+        line-height: 0.9;
+        letter-spacing: 0.01em;
+        color: rgba(255, 255, 255, 0.92);
+        pointer-events: none;
+    }
+
+    body.hospitality-template .hospitality-horizon-collage .hospitality-collage-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1.12 / 1;
+        object-fit: cover;
+        display: block;
+    }
+
+    body.hospitality-template .hospitality-horizon-row {
+        order: 3;
+        display: block;
+        margin-top: 8px;
+    }
+
+    body.hospitality-template .hospitality-horizon-row .hospitality-horizon-image-wrap,
+    body.hospitality-template .hospitality-horizon-row .hospitality-horizon-title {
+        display: none;
+    }
+
+    body.hospitality-template .hospitality-horizon-copy {
+        min-height: 0;
+        padding: 0 16px;
+        display: block;
+        font-size: clamp(10px, 2.8vw, 12px);
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    body.hospitality-template .hospitality-horizon-copy p + p {
+        margin-top: 0;
+    }
+
+    body.hospitality-template .hospitality-cafe {
+        padding-top: 16px;
+        padding-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    body.hospitality-template .hospitality-cafe-bottom-grid {
+        order: 1;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+    }
+
+    body.hospitality-template .hospitality-cafe-bottom-word {
+        display: none;
+    }
+
+    body.hospitality-template .hospitality-cafe-bottom-grid::after {
+        content: 'Caf\00e9 Calido';
+        position: absolute;
+        left: 50%;
+        bottom: -2px;
+        transform: translateX(-50%);
+        font-family: 'The Seasons', serif;
+        font-size: clamp(40px, 11.2vw, 56px);
+        line-height: 0.9;
+        word-spacing: 0.48em;
+        letter-spacing: 0.01em;
+        color: rgba(255, 255, 255, 0.9);
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    body.hospitality-template .hospitality-cafe-bottom-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1.18 / 1;
+        object-fit: cover;
+        display: block;
+    }
+
+    body.hospitality-template .hospitality-cafe-grid {
+        order: 2;
+        display: block;
+        margin-top: 8px;
+    }
+
+    body.hospitality-template .hospitality-cafe-title,
+    body.hospitality-template .hospitality-cafe-main-image {
+        display: none;
+    }
+
+    body.hospitality-template .hospitality-cafe-copy {
+        min-height: 0;
+        display: block;
+        padding: 0 16px;
+        text-align: center;
+        font-size: clamp(10px, 2.8vw, 12px);
+        line-height: 1.4;
+    }
+
+    body.hospitality-template footer {
+        border-top-width: 2px;
+        padding: 18px 0 16px;
+    }
+
+    body.hospitality-template footer .container {
+        max-width: min(94vw, 430px);
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    body.hospitality-template .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        column-gap: 10px;
+        row-gap: 10px;
+        align-items: start;
+    }
+
+    body.hospitality-template .footer-brand {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr);
+        column-gap: 10px;
+        row-gap: 0;
+        max-width: none;
+        align-items: start;
+    }
+
+    body.hospitality-template .footer-logo-custom {
+        margin-bottom: 0;
+    }
+
+    body.hospitality-template .footer-logo-img {
+        width: 66px;
+    }
+
+    body.hospitality-template .footer-desc {
+        margin: 0;
+        font-size: 7.6px;
+        line-height: 1.42;
+        font-weight: 500;
+        text-align: left;
+        text-align-last: auto;
+        letter-spacing: 0.06px;
+    }
+
+    body.hospitality-template .social-icons {
+        grid-column: 1 / -1;
+        margin-top: 6px;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    body.hospitality-template .social-icons a {
+        width: 25px;
+        height: 25px;
+    }
+
+    body.hospitality-template .footer-grid > .footer-links:nth-of-type(1) {
+        grid-column: 1;
+    }
+
+    body.hospitality-template .footer-grid > .footer-links:nth-of-type(2) {
+        grid-column: 2;
+    }
+
+    body.hospitality-template .footer-grid > .footer-links:nth-of-type(3) {
+        grid-column: 3;
+    }
+
+    body.hospitality-template .footer-links.contact-links {
+        grid-column: 1 / -1;
+        margin-top: 2px;
+    }
+
+    body.hospitality-template .footer-title {
+        font-size: 12px;
+        margin-bottom: 4px;
+        letter-spacing: 0;
+        white-space: nowrap;
+    }
+
+    body.hospitality-template .footer-links li {
+        margin-bottom: 3px;
+    }
+
+    body.hospitality-template .footer-links a {
+        font-size: 8px;
+        gap: 4px;
+        line-height: 1.25;
+    }
+
+    body.hospitality-template .footer-links a::before {
+        font-size: 8px;
+    }
+
+    body.hospitality-template .footer-links.contact-links a {
+        font-size: 8px;
+        gap: 6px;
+    }
+
+    body.hospitality-template .contact-icon {
+        width: 7px;
+        height: 7px;
+        border: 1px solid #39a945;
+        background: transparent;
+        font-size: 0;
+        flex: 0 0 7px;
+    }
+
+    body.hospitality-template .nashik-office,
+    body.hospitality-template .pune-office {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    body.hospitality-template .nashik-office {
+        grid-column: 1 / 3;
+    }
+
+    body.hospitality-template .pune-office {
+        grid-column: 3 / 4;
+    }
+
+    body.hospitality-template .address-col h4 {
+        font-size: 7.4px;
+        margin-bottom: 2px;
+    }
+
+    body.hospitality-template .address-col p {
+        font-size: 6.7px;
+        line-height: 1.3;
+    }
+
+    body.hospitality-template .footer-bottom {
+        grid-column: 1 / -1;
+        margin-top: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        font-size: 9px;
+        text-align: center;
+    }
+
+    body.hospitality-template .footer-bottom > p:first-child,
+    body.hospitality-template .footer-bottom .credits {
+        margin-left: 0;
+        grid-column: auto;
+        justify-self: center;
+    }
+
+    body.hospitality-template .footer-bottom .credits {
+        font-size: 7.5px;
+        font-weight: 400;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 940px) {
     body.home-template .project-img {
-        background-size: 114% auto !important;
-        background-position: center 52% !important;
+        background-size: 124% auto !important;
+        background-position: center 50% !important;
+    }
+}
+
+@media (max-width: 390px) {
+    body.hospitality-template .hospitality-hero-copy {
+        padding-left: 8px;
+        padding-right: 8px;
+        text-align: center;
+    }
+
+    body.hospitality-template .hospitality-hero-copy h1 {
+        width: 100%;
+        max-width: 312px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: clamp(38px, 12.8vw, 48px);
+        line-height: 0.94;
+        text-align: center;
+    }
+
+    body.hospitality-template .hospitality-hero-copy p {
+        max-width: 100%;
+        padding: 0 8px;
+        font-size: clamp(14px, 4.6vw, 17px);
+        text-align: center;
+    }
+
+    body.hospitality-template .hospitality-hero-line-two {
+        display: inline;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    body.hospitality-template .hospitality-hero-copy h1 {
+        transform: translateX(-37px);
+    }
+
+    body.hospitality-template .hospitality-hero-copy p {
+        transform: translateX(-37px);
+    }
+}
+
+/* Unified mobile footer layout across all pages */
+@media (max-width: 940px) {
+    footer {
+        border-top-width: 2px !important;
+        padding: 16px 0 16px !important;
+        background: #f4f4f4 !important;
+    }
+
+    footer .container {
+        max-width: min(94vw, 430px) !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    footer .footer-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        column-gap: 12px !important;
+        row-gap: 11px !important;
+        align-items: start !important;
+    }
+
+    footer .footer-brand {
+        display: contents !important;
+        max-width: none !important;
+    }
+
+    footer .footer-logo-custom {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+        margin-bottom: 0 !important;
+    }
+
+    footer .footer-logo-img {
+        width: 66px !important;
+    }
+
+    footer .footer-desc {
+        grid-column: 2 / 4 !important;
+        grid-row: 1 !important;
+        margin: 0 !important;
+        font-size: 7.6px !important;
+        line-height: 1.42 !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.05px !important;
+        text-align: left !important;
+        text-align-last: auto !important;
+    }
+
+    footer .footer-grid > .footer-links:nth-of-type(2) {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+    }
+
+    footer .footer-grid > .footer-links:nth-of-type(3) {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+    }
+
+    footer .footer-grid > .footer-links:nth-of-type(4) {
+        grid-column: 3 !important;
+        grid-row: 2 !important;
+    }
+
+    footer .footer-links.contact-links {
+        grid-column: 1 / -1 !important;
+        grid-row: 3 !important;
+        margin-top: 2px !important;
+    }
+
+    footer .nashik-office,
+    footer .pune-office {
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    footer .nashik-office {
+        grid-column: 1 / 3 !important;
+        grid-row: 4 !important;
+    }
+
+    footer .pune-office {
+        grid-column: 3 / 4 !important;
+        grid-row: 4 !important;
+    }
+
+    footer .social-icons {
+        grid-column: 1 / -1 !important;
+        grid-row: 5 !important;
+        margin-top: 8px !important;
+        justify-content: center !important;
+        gap: 10px !important;
+    }
+
+    footer .social-icons a {
+        width: 25px !important;
+        height: 25px !important;
+    }
+
+    footer .footer-title {
+        font-size: 12px !important;
+        margin-bottom: 4px !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
+    }
+
+    footer .footer-links li {
+        margin-bottom: 3px !important;
+    }
+
+    footer .footer-links a {
+        font-size: 8px !important;
+        gap: 4px !important;
+        line-height: 1.24 !important;
+    }
+
+    footer .footer-links a::before {
+        font-size: 8px !important;
+    }
+
+    footer .footer-links.contact-links a {
+        font-size: 8px !important;
+        gap: 6px !important;
+    }
+
+    footer .contact-icon {
+        width: 10px !important;
+        height: 10px !important;
+        border: 0 !important;
+        background: #39a945 !important;
+        color: #ffffff !important;
+        font-size: 6px !important;
+        flex: 0 0 10px !important;
+        line-height: 1 !important;
+    }
+
+    footer .address-col h4 {
+        font-size: 7.4px !important;
+        margin-bottom: 2px !important;
+    }
+
+    footer .address-col p {
+        font-size: 6.7px !important;
+        line-height: 1.3 !important;
+    }
+
+    footer .footer-bottom {
+        grid-column: 1 / -1 !important;
+        grid-row: 6 !important;
+        margin-top: 6px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 3px !important;
+        font-size: 9px !important;
+        text-align: center !important;
+    }
+
+    footer .footer-bottom > p:first-child,
+    footer .footer-bottom .credits {
+        margin-left: 0 !important;
+        grid-column: auto !important;
+        justify-self: center !important;
+    }
+
+    footer .footer-bottom .credits {
+        font-size: 7.5px !important;
+        font-weight: 400 !important;
     }
 }
 
@@ -7435,7 +8442,8 @@ body.hospitality-template p {
 .re-city-panel,
 .hospitality-venues,
 .hospitality-horizon-collage,
-.hospitality-cafe-bottom-grid {
+.hospitality-cafe-bottom-grid,
+.hospitality-location {
     content-visibility: auto;
     contain-intrinsic-size: 1px 900px;
 }

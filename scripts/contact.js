@@ -89,11 +89,11 @@ if (contactForm) {
             const enquiryChips = Array.from(document.querySelectorAll('.enquiry-chip'));
 
             if (enquiryTypeInput) {
-                enquiryTypeInput.value = 'Residential';
+                enquiryTypeInput.value = 'Real Estate';
             }
 
             enquiryChips.forEach((chip) => {
-                const isDefault = chip.dataset.enquiryValue === 'Residential';
+                const isDefault = chip.dataset.enquiryValue === 'Real Estate';
                 chip.classList.toggle('is-active', isDefault);
                 chip.setAttribute('aria-pressed', isDefault ? 'true' : 'false');
             });

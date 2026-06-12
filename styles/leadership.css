@@ -1,5 +1,5 @@
-/* Page stylesheet entry */
-@import url('common.css?v=20260523n6');
+﻿/* Page stylesheet entry */
+@import url('common.css?v=20260525n13');
 
 body.leadership-template {
     --leadership-gutter: clamp(16px, 8.8vw, 164px);
@@ -244,7 +244,7 @@ body.leadership-template .footer-bottom p {
     .leader-content p {
         font-size: clamp(16px, 0.88vw, 19px);
         line-height: 1.48;
-        text-align: left;
+        text-align: justify;
         margin-bottom: clamp(16px, 1.2vw, 24px);
     }
 
@@ -334,7 +334,7 @@ body.leadership-template .footer-bottom p {
         line-height: 1.5;
         margin-bottom: clamp(18px, 1.1vw, 30px);
         max-width: 980px;
-        text-align: left;
+        text-align: justify;
     }
 
     .leader-image-milind img {
@@ -362,12 +362,56 @@ body.leadership-template .footer-bottom p {
 
     .leader-section-top {
         grid-template-columns: minmax(340px, 1fr) minmax(320px, 460px);
+        min-height: clamp(420px, 40vw, 490px);
     }
 
     .leader-section-bottom {
         grid-template-columns: minmax(320px, 460px) minmax(340px, 1fr);
     }
 
+    .leader-section-top .leader-content {
+        padding-top: clamp(24px, 2.2vw, 34px);
+    }
+
+    .leader-image-milind img {
+        margin-top: -14px;
+    }
+
+}
+
+@media (min-width: 1181px) and (max-width: 1599px) {
+    .leadership-page-intro h1 {
+        font-size: clamp(104px, 7.9vw, 128px);
+    }
+
+    .leadership-page-intro p {
+        font-size: clamp(31px, 2.25vw, 37px);
+    }
+
+    .leader-section-top {
+        min-height: 460px;
+    }
+
+    .leader-section-top .leader-content {
+        padding-top: 30px;
+    }
+
+    .leader-image-milind img {
+        width: min(106%, 640px);
+        margin-top: -22px;
+    }
+
+    .leader-section-bottom {
+        min-height: 520px;
+    }
+
+    .leader-section-bottom .leader-content {
+        padding-top: 28px;
+    }
+
+    .leader-image-atharva img {
+        margin-top: -14px;
+    }
 }
 
 @media (max-width: 940px) {
@@ -431,7 +475,7 @@ body.leadership-template .footer-bottom p {
     }
 
     .leader-content p {
-        text-align: left;
+        text-align: justify;
     }
 
     body.leadership-template footer {
@@ -698,7 +742,7 @@ body.leadership-template .footer-bottom p {
         font-size: clamp(11px, 3.2vw, 14px);
         line-height: 1.55;
         color: #111; 
-        text-align: left;
+        text-align: justify;
         margin-bottom: 14px;
     }
 
@@ -706,3 +750,6 @@ body.leadership-template .footer-bottom p {
         padding-top: 48px;
     }
 }
+
+
+

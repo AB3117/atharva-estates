@@ -1,5 +1,5 @@
-/* Page stylesheet entry */
-@import url('common.css?v=20260523n6');
+﻿/* Page stylesheet entry */
+@import url('common.css?v=20260525n13');
 
 body.values-template {
     background: #ffffff;
@@ -50,7 +50,7 @@ body.values-template {
 .values-column {
     display: flex;
     flex-direction: column;
-    gap: clamp(32px, 3.8vw, 64px);
+    gap: clamp(40px, 4.3vw, 78px);
     padding-top: clamp(16px, 1.8vw, 32px);
 }
 
@@ -59,7 +59,7 @@ body.values-template {
 }
 
 .value-card h2 {
-    margin: 0 0 clamp(4px, 0.5vw, 8px);
+    margin: 0 0 clamp(8px, 0.8vw, 14px);
     font-family: 'The Seasons', 'Juana', serif;
     font-size: clamp(34px, 2vw, 52px);
     line-height: 0.95;
@@ -157,8 +157,8 @@ body.values-template .footer-desc {
     }
 
     .values-column {
-        gap: clamp(28px, 2vw, 48px);
-        padding-top: clamp(12px, 0.9vw, 22px);
+        gap: clamp(38px, 2.6vw, 62px);
+        padding-top: clamp(14px, 1.1vw, 26px);
     }
 
     .value-card h2 {
@@ -180,6 +180,27 @@ body.values-template .footer-desc {
     }
 }
 
+@media (min-width: 1024px) and (max-width: 1500px) {
+    .values-column {
+        gap: clamp(52px, 4.2vw, 84px);
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1120px) {
+    .values-hero h1 {
+        max-width: none;
+        white-space: normal;
+        font-size: clamp(32px, 3.35vw, 40px);
+        letter-spacing: -0.01em;
+        line-height: 1.02;
+    }
+
+    .values-hero h1 span {
+        display: block;
+        margin-top: 4px;
+    }
+}
+
 @media (min-width: 2200px) {
     .values-hero {
         --pole-footer-lock: clamp(96px, 5vw, 132px);
@@ -196,18 +217,24 @@ body.values-template .footer-desc {
     }
 
     .values-layout {
-        grid-template-columns: minmax(320px, 1fr) minmax(420px, 620px) minmax(320px, 1fr);
+        grid-template-columns: minmax(420px, 1fr) minmax(420px, 620px) minmax(420px, 1fr);
         gap: clamp(34px, 2.1vw, 56px);
     }
 
+    .value-card {
+        min-width: 420px;
+        max-width: none;
+    }
+
     .values-column {
-        gap: clamp(42px, 2.5vw, 70px);
+        gap: clamp(52px, 3.1vw, 92px);
         padding-top: clamp(4px, 0.5vw, 16px);
         padding-bottom: clamp(78px, 4.2vw, 132px);
     }
 
     .value-card h2 {
         font-size: clamp(44px, 2vw, 60px);
+        white-space: nowrap;
     }
 
     .value-card p {
@@ -380,7 +407,7 @@ body.values-template .footer-desc {
 }
 
 /* Values page mobile: match provided PDF layout */
-@media (max-width: 940px) {
+@media (max-width: 767px) {
     body.values-template,
     .values-page-main,
     .values-hero,
@@ -630,6 +657,42 @@ body.values-template .footer-desc {
     }
 }
 
+@media (min-width: 768px) and (max-width: 940px) {
+    body.values-template header {
+        position: relative;
+        padding-top: 8px;
+        padding-bottom: 10px;
+        border-bottom-width: 2px;
+    }
+
+    body.values-template header .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    body.values-template .header-content {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+        padding: 0;
+    }
+
+    body.values-template .logo {
+        margin-right: 0;
+    }
+
+    body.values-template .logo-img {
+        width: 58px;
+    }
+
+    body.values-template nav,
+    body.values-template .btn-outline {
+        display: none;
+    }
+}
+
 @media (max-width: 520px) {
     .values-hero {
         --values-mobile-gutter: 10px;
@@ -692,3 +755,6 @@ body.values-template .footer-desc {
         font-size: clamp(104px, 32vw, 172px);
     }
 }
+
+
+
